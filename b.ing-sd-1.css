@@ -3444,3 +3444,16 @@ body.dark-mode ::-webkit-scrollbar-thumb {
     transform-origin: left center;
   }
 }
+
+/* =========================================
+   TOMBOL BAB SELESAI
+========================================= */
+
+.chapter-done {
+  opacity: 0.75;
+  cursor: default;
+}
+
+.chapter-done:hover {
+  transform: none;
+}

@@ -607,29 +607,20 @@
           </div>
         </section>
 
-        <!-- =====================================
-           FINISH
-      ====================================== -->
-
         <section class="finish-card">
           <div class="finish-icon">
-            <i data-feather="award"></i>
+            <i data-feather="check-circle"></i>
           </div>
 
           <div>
             <span class="eyebrow"> SELESAI MEMPELAJARI MATERI? </span>
 
             <h2>Hebat! Kamu sudah sampai di akhir materi.</h2>
-
-            <p>
-              Setelah memahami semua bab, kamu bisa melanjutkan ke latihan soal
-              untuk menguji pemahamanmu.
-            </p>
           </div>
 
-          <button class="practice-button">
-            <i data-feather="edit-3"></i>
-            Latihan Soal
+          <button class="practice-button finish-material-button" type="button">
+            <i data-feather="check"></i>
+            Selesai
           </button>
         </section>
 
@@ -784,6 +775,179 @@
           chapters.forEach((chapter) => {
             observer.observe(chapter);
           });
+        }
+
+        /* =======================================================
+   PROGRESS BELAJAR
+======================================================= */
+
+        const currentUser =
+          JSON.parse(localStorage.getItem("elearning_current_user")) || null;
+
+        const currentSubject =
+          localStorage.getItem("elearning_current_subject") || "";
+
+        const currentLevel =
+          localStorage.getItem("elearning_current_level") || "SD";
+
+        const currentClass =
+          localStorage.getItem("elearning_current_class") || "1";
+
+        if (currentUser && currentSubject) {
+          const progressKey = `elearning_progress_${currentUser.id}_${currentLevel}_${currentClass}`;
+
+          const chapterKey = `elearning_chapters_${currentUser.id}_${currentLevel}_${currentClass}_${currentSubject}`;
+
+          /* =====================================
+     AMBIL PROGRESS
+  ===================================== */
+
+          function getStoredProgress() {
+            try {
+              return JSON.parse(localStorage.getItem(progressKey)) || {};
+            } catch (error) {
+              return {};
+            }
+          }
+
+          /* =====================================
+     AMBIL BAB YANG SUDAH SELESAI
+  ===================================== */
+
+          function getCompletedChapters() {
+            try {
+              return JSON.parse(localStorage.getItem(chapterKey)) || [];
+            } catch (error) {
+              return [];
+            }
+          }
+
+          /* =====================================
+     SIMPAN PROGRESS
+  ===================================== */
+
+          function saveProgress(value) {
+            const progress = getStoredProgress();
+
+            progress[currentSubject] = Math.max(0, Math.min(100, value));
+
+            localStorage.setItem(progressKey, JSON.stringify(progress));
+          }
+
+          /* =====================================
+     UPDATE TOMBOL BAB
+  ===================================== */
+
+          function updateChapterButtons() {
+            const completed = getCompletedChapters();
+
+            document.querySelectorAll(".complete-chapter").forEach((button) => {
+              const chapter = Number(button.dataset.chapter);
+
+              if (completed.includes(chapter)) {
+                button.innerHTML = `
+            <i data-feather="check-circle"></i>
+            Selesai
+          `;
+
+                button.disabled = true;
+
+                button.classList.add("chapter-done");
+              }
+            });
+
+            refreshIcons();
+          }
+
+          /* =====================================
+     KLIK BAB SELESAI
+  ===================================== */
+
+          document.querySelectorAll(".complete-chapter").forEach((button) => {
+            button.addEventListener("click", () => {
+              const chapter = Number(button.dataset.chapter);
+
+              let completed = getCompletedChapters();
+
+              /* SUDAH PERNAH SELESAI */
+
+              if (completed.includes(chapter)) {
+                return;
+              }
+
+              /* TAMBAHKAN BAB */
+
+              completed.push(chapter);
+
+              completed.sort((a, b) => a - b);
+
+              localStorage.setItem(chapterKey, JSON.stringify(completed));
+
+              /* 5 BAB = 100% */
+
+              const progressValue = Math.round((completed.length / 5) * 100);
+
+              saveProgress(progressValue);
+
+              /* UBAH TOMBOL */
+
+              button.innerHTML = `
+          <i data-feather="check-circle"></i>
+          Selesai
+        `;
+
+              button.disabled = true;
+
+              button.classList.add("chapter-done");
+
+              refreshIcons();
+
+              /* INFO */
+
+              if (progressValue >= 100) {
+                alert("Materi selesai! Progress belajarmu sudah 100%.");
+              } else {
+                alert(`Bab ${chapter} selesai. Progress ${progressValue}%.`);
+              }
+            });
+          });
+
+          /* =====================================
+     TOMBOL SELESAI MATERI
+  ===================================== */
+
+          const finishMaterialButton = document.querySelector(
+            ".finish-material-button",
+          );
+
+          if (finishMaterialButton) {
+            finishMaterialButton.addEventListener("click", () => {
+              saveProgress(100);
+
+              localStorage.removeItem(chapterKey);
+
+              finishMaterialButton.innerHTML = `
+          <i data-feather="check-circle"></i>
+          Selesai
+        `;
+
+              finishMaterialButton.disabled = true;
+
+              finishMaterialButton.classList.add("chapter-done");
+
+              refreshIcons();
+
+              alert(
+                "Mantap! Materi ini sudah selesai dan progress menjadi 100%.",
+              );
+            });
+          }
+
+          /* =====================================
+     SAAT HALAMAN DIBUKA
+  ===================================== */
+
+          updateChapterButtons();
         }
 
         /* =======================================================
