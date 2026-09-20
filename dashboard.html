@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Learn-Space | Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css" />
+
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+
+  <body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-icon">
+          <i data-feather="book-open"></i>
+        </div>
+
+        <div>
+          <h2>Learn-Space</h2>
+          <span>Learning Platform</span>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <p class="menu-title">MENU</p>
+
+        <a href="#" class="menu-item active">
+          <i data-feather="grid"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="#" class="menu-item">
+          <i data-feather="book"></i>
+          <span>My Courses</span>
+        </a>
+
+        <a href="#" class="menu-item">
+          <i data-feather="clipboard"></i>
+          <span>Tugas</span>
+        </a>
+
+        <a href="#" class="menu-item">
+          <i data-feather="trending-up"></i>
+          <span>Progress</span>
+        </a>
+
+        <p class="menu-title">PERSONAL</p>
+
+        <a href="quizizz.html" class="menu-item">
+          <i data-feather="check-square"></i>
+          <span>Quizizz</span>
+        </a>
+
+        <a href="#" class="menu-item">
+          <i data-feather="award"></i>
+          <span>Achievement</span>
+        </a>
+
+        <a href="#" class="menu-item">
+          <i data-feather="calendar"></i>
+          <span>Kalender</span>
+        </a>
+
+        <a href="profile.html" class="menu-item">
+          <i data-feather="user"></i>
+          <span>Profile</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <a href="#" class="menu-item">
+          <i data-feather="help-circle"></i>
+          <span>Help Center</span>
+        </a>
+
+        <button class="logout-btn" id="logoutBtn" type="button">
+          <i data-feather="log-out"></i>
+          <span>Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <!-- SEARCH -->
+        <div class="search">
+          <i data-feather="search"></i>
+
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Cari mata pelajaran atau materi..."
+            autocomplete="off"
+          />
+        </div>
+
+        <!-- RIGHT ACTIONS -->
+        <div class="topbar-actions">
+          <!-- DARK / LIGHT -->
+          <button
+            type="button"
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Aktifkan mode gelap"
+            title="Mode gelap"
+          >
+            <i data-feather="moon"></i>
+          </button>
+
+          <!-- PROFILE -->
+          <div class="profile-area">
+            <div class="profile-mini" id="profileMini">
+              <!-- AVATAR -->
+              <button
+                type="button"
+                class="avatar avatar-profile-link"
+                id="avatarProfileLink"
+                aria-label="Buka profil"
+              >
+                <img id="avatarImage" src="" alt="Foto profil" hidden />
+
+                <span id="avatarText"> S </span>
+              </button>
+
+              <!-- INFO -->
+              <button
+                type="button"
+                class="profile-info profile-profile-link"
+                id="profileInfoLink"
+              >
+                <strong id="profileName"> Siswa </strong>
+
+                <small id="profileClass"> SMP • Kelas 7 </small>
+              </button>
+
+              <!-- CHEVRON -->
+              <button
+                type="button"
+                class="profile-chevron"
+                id="profileChevron"
+                aria-label="Pilih jenjang pendidikan"
+              >
+                <i data-feather="chevron-down"></i>
+              </button>
+            </div>
+
+            <!-- PROFILE DROPDOWN -->
+            <div class="profile-dropdown" id="profileDropdown">
+              <div class="profile-dropdown-header">
+                <strong> Jenjang Pendidikan </strong>
+
+                <span id="currentLevelText"> SD </span>
+              </div>
+
+              <!-- SD -->
+              <button class="level-option" type="button" data-level="SD">
+                <div class="level-icon">
+                  <i data-feather="book-open"></i>
+                </div>
+
+                <div>
+                  <strong>SD</strong>
+                  <small>Kelas 1 - 6</small>
+                </div>
+
+                <i data-feather="check"></i>
+              </button>
+
+              <!-- SMP -->
+              <button class="level-option" type="button" data-level="SMP">
+                <div class="level-icon">
+                  <i data-feather="book-open"></i>
+                </div>
+
+                <div>
+                  <strong>SMP</strong>
+                  <small>Kelas 7 - 9</small>
+                </div>
+
+                <i data-feather="check"></i>
+              </button>
+
+              <!-- SMA -->
+              <button class="level-option" type="button" data-level="SMA">
+                <div class="level-icon">
+                  <i data-feather="book-open"></i>
+                </div>
+
+                <div>
+                  <strong>SMA</strong>
+                  <small>Kelas 10 - 12</small>
+                </div>
+
+                <i data-feather="check"></i>
+              </button>
+
+              <!-- SMK -->
+              <button class="level-option" type="button" data-level="SMK">
+                <div class="level-icon">
+                  <i data-feather="book-open"></i>
+                </div>
+
+                <div>
+                  <strong>SMK</strong>
+                  <small>Kelas 10 - 12</small>
+                </div>
+
+                <i data-feather="check"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT -->
+      <section class="content">
+        <!-- WELCOME -->
+        <div class="welcome">
+          <div class="welcome-text">
+            <span class="welcome-label">LEARNING DASHBOARD</span>
+
+            <h1>Halo, <span id="welcomeName">Siswa</span> 👋</h1>
+
+            <p>Lanjutkan perjalanan belajarmu hari ini.</p>
+          </div>
+
+          <!-- EDUCATION SELECTOR -->
+          <div class="education-selector" id="educationSelector">
+            <div
+              class="education-main"
+              id="classDropdownButton"
+              role="button"
+              tabindex="0"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+            >
+              <div class="education-icon">
+                <i data-feather="book-open"></i>
+              </div>
+
+              <div>
+                <small>PENDIDIKAN</small>
+
+                <strong id="educationText">SD • Kelas 1</strong>
+              </div>
+
+              <i data-feather="chevron-down" class="education-arrow"></i>
+            </div>
+
+            <!-- CLASS DROPDOWN -->
+            <div class="class-dropdown" id="classDropdown">
+              <div class="dropdown-title" id="classDropdownTitle">
+                PILIH KELAS SD
+              </div>
+
+              <!-- LEVEL -->
+              <div class="level-switcher">
+                <button type="button" class="level-option" data-level="SD">
+                  SD
+                </button>
+
+                <button type="button" class="level-option" data-level="SMP">
+                  SMP
+                </button>
+
+                <button type="button" class="level-option" data-level="SMA">
+                  SMA
+                </button>
+
+                <button type="button" class="level-option" data-level="SMK">
+                  SMK
+                </button>
+              </div>
+
+              <!-- KELAS DIBUAT OTOMATIS -->
+              <div id="classOptions"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- OVERVIEW -->
+        <div class="overview">
+          <div class="overview-card">
+            <div class="overview-icon blue">
+              <i data-feather="book-open"></i>
+            </div>
+
+            <div>
+              <span>Total Mapel</span>
+              <strong id="courseCount">9</strong>
+            </div>
+          </div>
+
+          <div class="overview-card">
+            <div class="overview-icon green">
+              <i data-feather="check-circle"></i>
+            </div>
+
+            <div>
+              <span>Materi Selesai</span>
+              <strong id="completedCount">0</strong>
+            </div>
+          </div>
+
+          <div class="overview-card">
+            <div class="overview-icon orange">
+              <i data-feather="clipboard"></i>
+            </div>
+
+            <div>
+              <span>Materi Tersedia</span>
+              <strong id="assignmentCount">9</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- COURSES -->
+        <section class="section">
+          <div class="section-header">
+            <div>
+              <span class="section-label">PEMBELAJARAN</span>
+              <h2>Mata Pelajaran</h2>
+            </div>
+
+            <span class="result-info" id="searchResultInfo"></span>
+          </div>
+
+          <div class="course-grid" id="courseGrid"></div>
+
+          <div class="empty-state" id="courseEmpty" hidden>
+            <i data-feather="search"></i>
+
+            <h3>Mapel tidak ditemukan</h3>
+
+            <p>Coba cari dengan nama mapel atau materi lainnya.</p>
+          </div>
+        </section>
+
+        <!-- LESSON -->
+        <section class="section lesson-section">
+          <div class="section-header">
+            <div>
+              <span class="section-label">MATERI</span>
+              <h2>Materi Terbaru</h2>
+            </div>
+          </div>
+
+          <div class="lesson-list" id="lessonList"></div>
+
+          <div class="empty-state" id="lessonEmpty" hidden>
+            <i data-feather="search"></i>
+
+            <h3>Materi tidak ditemukan</h3>
+
+            <p>Coba gunakan kata pencarian yang berbeda.</p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>

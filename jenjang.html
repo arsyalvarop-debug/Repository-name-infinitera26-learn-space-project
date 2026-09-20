@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Learn-Space — Pilih Jenjang</title>
+
+    <link rel="stylesheet" href="jenjang.css" />
+
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+
+    <header class="topbar">
+      <a href="index.html" class="brand">
+        <span class="brand-icon">
+          <i data-feather="book-open"></i>
+        </span>
+
+        <span>Learn-Space</span>
+      </a>
+
+      <div class="user-area">
+        <span id="welcomeUser">Halo!</span>
+
+        <button id="logoutBtn" class="logout-btn">
+          <i data-feather="log-out"></i>
+          Keluar
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+
+    <main class="selection-page">
+      <section class="selection-header">
+        <span class="eyebrow"> PERSONALIZE YOUR LEARNING </span>
+
+        <h1>Mulai dari <span>jenjangmu.</span></h1>
+
+        <p>
+          Pilih jenjang pendidikan yang sedang kamu tempuh. Kami akan
+          menyesuaikan materi, tugas, dan pembelajaran untukmu.
+        </p>
+      </section>
+
+      <!-- JENJANG -->
+
+      <section class="level-grid">
+        <!-- SD -->
+
+        <button class="level-card sd" data-level="SD" data-class="1">
+          <div class="level-top">
+            <div class="level-icon">
+              <i data-feather="smile"></i>
+            </div>
+
+            <span class="level-number"> 01 </span>
+          </div>
+
+          <div class="level-content">
+            <span class="level-label"> SEKOLAH DASAR </span>
+
+            <h2>SD</h2>
+
+            <p>Materi pembelajaran dasar untuk kelas 1 sampai 6.</p>
+          </div>
+
+          <div class="level-bottom">
+            <span> Kelas 1 — 6 </span>
+
+            <span class="level-arrow">
+              <i data-feather="arrow-up-right"></i>
+            </span>
+          </div>
+        </button>
+
+        <!-- SMP -->
+
+        <button class="level-card smp" data-level="SMP" data-class="7">
+          <div class="level-top">
+            <div class="level-icon">
+              <i data-feather="compass"></i>
+            </div>
+
+            <span class="level-number"> 02 </span>
+          </div>
+
+          <div class="level-content">
+            <span class="level-label"> SEKOLAH MENENGAH PERTAMA </span>
+
+            <h2>SMP</h2>
+
+            <p>
+              Pembelajaran untuk kelas 7 sampai 9 dengan materi yang lebih
+              mendalam.
+            </p>
+          </div>
+
+          <div class="level-bottom">
+            <span> Kelas 7 — 9 </span>
+
+            <span class="level-arrow">
+              <i data-feather="arrow-up-right"></i>
+            </span>
+          </div>
+        </button>
+
+        <!-- SMA -->
+
+        <button class="level-card sma" data-level="SMA" data-class="10">
+          <div class="level-top">
+            <div class="level-icon">
+              <i data-feather="book"></i>
+            </div>
+
+            <span class="level-number"> 03 </span>
+          </div>
+
+          <div class="level-content">
+            <span class="level-label"> SEKOLAH MENENGAH ATAS </span>
+
+            <h2>SMA</h2>
+
+            <p>
+              Materi akademik untuk kelas 10 sampai 12 dengan fokus persiapan
+              pendidikan lanjutan.
+            </p>
+          </div>
+
+          <div class="level-bottom">
+            <span> Kelas 10 — 12 </span>
+
+            <span class="level-arrow">
+              <i data-feather="arrow-up-right"></i>
+            </span>
+          </div>
+        </button>
+
+        <!-- SMK -->
+
+        <button class="level-card smk" data-level="SMK" data-class="10">
+          <div class="level-top">
+            <div class="level-icon">
+              <i data-feather="tool"></i>
+            </div>
+
+            <span class="level-number"> 04 </span>
+          </div>
+
+          <div class="level-content">
+            <span class="level-label"> SEKOLAH MENENGAH KEJURUAN </span>
+
+            <h2>SMK</h2>
+
+            <p>
+              Pembelajaran umum dan kejuruan untuk mempersiapkan kompetensi
+              kerja.
+            </p>
+          </div>
+
+          <div class="level-bottom">
+            <span> Kelas 10 — 12 </span>
+
+            <span class="level-arrow">
+              <i data-feather="arrow-up-right"></i>
+            </span>
+          </div>
+        </button>
+      </section>
+
+      <div class="selection-note">
+        <i data-feather="shield"></i>
+
+        <span>
+          Kamu dapat mengganti jenjang dan kelas kapan saja dari dashboard.
+        </span>
+      </div>
+    </main>
+
+    <script src="jenjang.js"></script>
+  </body>
+</html>

@@ -1,0 +1,999 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Izin ANTI AI Hama</title>
+    <style>
+      :root {
+        --blue-900: #0b2a5c;
+        --blue-700: #144a9c;
+        --blue-500: #1d63cf;
+        --blue-300: #5b9be6;
+        --ice: #eaf3ff;
+        --white: #ffffff;
+        --ink: #0e1b33;
+        --muted: #6d7a90;
+        --gold: #f5a623;
+        --radius-lg: 20px;
+        --radius-md: 12px;
+        --shadow: 0 20px 40px rgba(11, 42, 92, 0.15);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        color: var(--ink);
+        background: var(--white);
+        line-height: 1.5;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      img,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+      ul {
+        list-style: none;
+      }
+
+      /* ===== HERO ===== */
+      .hero {
+        position: relative;
+        background: linear-gradient(
+          160deg,
+          #0e2f66 0%,
+          #1a58ab 45%,
+          #2f7fd6 75%,
+          #6db3ec 100%
+        );
+        padding: 28px 6vw 90px;
+        overflow: hidden;
+        color: var(--white);
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.18),
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 60% 60%,
+            rgba(255, 255, 255, 0.08),
+            transparent 50%
+          );
+        pointer-events: none;
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 2;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        letter-spacing: 0.3px;
+      }
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+        background: var(--white);
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .brand-mark svg {
+        width: 18px;
+        height: 18px;
+        fill: var(--blue-700);
+      }
+      .brand small {
+        display: block;
+        font-weight: 400;
+        font-size: 0.62rem;
+        letter-spacing: 1.5px;
+        opacity: 0.75;
+      }
+      .nav-links {
+        display: flex;
+        gap: 34px;
+        font-size: 0.92rem;
+        font-weight: 500;
+      }
+      .nav-links .active {
+        position: relative;
+      }
+      .nav-links .active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -8px;
+        height: 2px;
+        background: var(--white);
+        border-radius: 2px;
+      }
+      .signin {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 8px 18px;
+        border-radius: 30px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      .hero-body {
+        position: relative;
+        z-index: 2;
+        margin-top: 60px;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .hero-copy .eyebrow {
+        font-style: italic;
+        font-weight: 400;
+        font-size: 1rem;
+        opacity: 0.85;
+        margin-bottom: 6px;
+      }
+      .hero-copy h1 {
+        font-size: clamp(2.4rem, 4.2vw, 3.4rem);
+        line-height: 1.05;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+      }
+      .hero-copy p {
+        margin-top: 18px;
+        max-width: 420px;
+        font-size: 0.98rem;
+        opacity: 0.85;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 26px;
+        background: var(--white);
+        color: var(--blue-700);
+        padding: 14px 26px;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 0.92rem;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+      }
+
+      /* paper plane illustration */
+      .hero-art {
+        position: relative;
+        height: 320px;
+      }
+      .hero-art svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      /* search bar */
+      .search-card {
+        position: relative;
+        z-index: 3;
+        margin: -46px 6vw 0;
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        padding: 22px 26px;
+      }
+      .search-tabs {
+        display: flex;
+        gap: 26px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+      .search-tabs span.active {
+        color: var(--blue-700);
+        position: relative;
+      }
+      .search-tabs span.active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -10px;
+        height: 2px;
+        background: var(--blue-700);
+      }
+      .search-fields {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr) auto;
+        gap: 16px;
+        align-items: end;
+      }
+      .field label {
+        display: block;
+        font-size: 0.72rem;
+        color: var(--muted);
+        margin-bottom: 6px;
+        font-weight: 600;
+      }
+      .field .value {
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: var(--ink);
+      }
+      .search-fields button {
+        background: var(--blue-700);
+        color: var(--white);
+        border: none;
+        padding: 14px 30px;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+      }
+
+      /* ===== FEATURES ===== */
+      .features {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        padding: 50px 6vw 10px;
+      }
+      .feature {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .feature .ico {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+        border-radius: 12px;
+        background: var(--ice);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .feature .ico svg {
+        width: 22px;
+        height: 22px;
+        stroke: var(--blue-700);
+      }
+      .feature h4 {
+        font-size: 0.94rem;
+        margin-bottom: 4px;
+      }
+      .feature p {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      /* ===== SECTION HEADER ===== */
+      .section {
+        padding: 60px 6vw;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 28px;
+      }
+      .section-head h2 {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: var(--blue-900);
+      }
+      .section-head .link {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--blue-700);
+      }
+
+      /* ===== PACKAGES ===== */
+      .packages {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px;
+      }
+      .package-card {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: 0 12px 30px rgba(11, 42, 92, 0.08);
+        background: var(--white);
+      }
+      .package-img {
+        height: 150px;
+        position: relative;
+      }
+      .package-img.greece {
+        background: linear-gradient(135deg, #3d8bd6, #bfe4ff);
+      }
+      .package-img.maldives {
+        background: linear-gradient(135deg, #0fb6b0, #a6f0e6);
+      }
+      .package-img.canada {
+        background: linear-gradient(135deg, #2b5f8a, #9fd4e8);
+      }
+      .package-img.japan {
+        background: linear-gradient(135deg, #e88bb0, #ffd9e6);
+      }
+      .package-body {
+        padding: 16px 18px 20px;
+      }
+      .package-body .loc {
+        font-size: 0.72rem;
+        color: var(--muted);
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        margin-bottom: 6px;
+      }
+      .package-body h4 {
+        font-size: 1rem;
+        margin-bottom: 4px;
+      }
+      .package-body .meta {
+        font-size: 0.75rem;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+      .package-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .price {
+        font-weight: 800;
+        color: var(--blue-900);
+        font-size: 1.05rem;
+      }
+      .rating {
+        font-size: 0.78rem;
+        color: var(--gold);
+        font-weight: 700;
+      }
+
+      /* ===== PRICING ===== */
+      .pricing-wrap {
+        background: linear-gradient(160deg, #0e2f66, #1d63cf);
+        border-radius: 28px;
+        padding: 56px 6vw;
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+      }
+      .pricing-wrap h2 {
+        text-align: center;
+        font-size: 1.6rem;
+        margin-bottom: 36px;
+      }
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        position: relative;
+        z-index: 2;
+      }
+      .price-card {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: var(--radius-lg);
+        padding: 26px 22px;
+        text-align: left;
+      }
+      .price-card.popular {
+        background: var(--white);
+        color: var(--ink);
+        transform: translateY(-10px);
+      }
+      .badge {
+        display: inline-block;
+        background: var(--gold);
+        color: #4a2e00;
+        font-size: 0.68rem;
+        font-weight: 800;
+        padding: 4px 10px;
+        border-radius: 20px;
+        margin-bottom: 14px;
+      }
+      .price-card h4 {
+        font-size: 1.05rem;
+        margin-bottom: 6px;
+      }
+      .price-card .desc {
+        font-size: 0.8rem;
+        opacity: 0.8;
+        margin-bottom: 16px;
+      }
+      .price-card .amount {
+        font-size: 1.9rem;
+        font-weight: 800;
+      }
+      .price-card .amount span {
+        font-size: 0.75rem;
+        font-weight: 500;
+        opacity: 0.75;
+      }
+      .price-card ul {
+        margin: 18px 0 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+      .price-card li {
+        font-size: 0.82rem;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .price-card button {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: none;
+        font-weight: 700;
+        font-size: 0.88rem;
+        background: var(--white);
+        color: var(--blue-700);
+        cursor: pointer;
+      }
+      .price-card.popular button {
+        background: var(--blue-700);
+        color: var(--white);
+      }
+
+      /* ===== HOW TO BOOK ===== */
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 26px;
+        text-align: center;
+        margin-top: 10px;
+      }
+      .step .ico {
+        width: 56px;
+        height: 56px;
+        margin: 0 auto 14px;
+        border-radius: 50%;
+        background: var(--ice);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .step .ico svg {
+        width: 26px;
+        height: 26px;
+        stroke: var(--blue-700);
+      }
+      .step h4 {
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+      }
+      .step p {
+        font-size: 0.8rem;
+        color: var(--muted);
+        max-width: 200px;
+        margin: 0 auto;
+      }
+
+      /* ===== TESTIMONIAL ===== */
+      .testimonial {
+        background: var(--ice);
+        border-radius: var(--radius-lg);
+        padding: 34px 40px;
+        display: flex;
+        gap: 24px;
+        align-items: center;
+      }
+      .testimonial .avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--blue-500), var(--blue-300));
+        flex-shrink: 0;
+      }
+      .testimonial blockquote {
+        font-size: 0.95rem;
+        color: var(--ink);
+        font-style: italic;
+      }
+      .testimonial .who {
+        margin-top: 10px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--blue-700);
+        font-style: normal;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: var(--blue-900);
+        color: rgba(255, 255, 255, 0.85);
+        padding: 50px 6vw 24px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr repeat(3, 1fr);
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+      .footer-grid h5 {
+        font-size: 0.85rem;
+        margin-bottom: 14px;
+        color: var(--white);
+      }
+      .footer-grid li {
+        font-size: 0.82rem;
+        margin-bottom: 9px;
+        opacity: 0.75;
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        padding-top: 18px;
+        font-size: 0.78rem;
+        opacity: 0.6;
+        text-align: center;
+      }
+
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+        .hero-body {
+          grid-template-columns: 1fr;
+        }
+        .hero-art {
+          height: 220px;
+          order: -1;
+        }
+        .search-fields {
+          grid-template-columns: 1fr 1fr;
+        }
+        .features {
+          grid-template-columns: 1fr 1fr;
+        }
+        .packages {
+          grid-template-columns: 1fr 1fr;
+        }
+        .pricing-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .price-card.popular {
+          transform: none;
+        }
+        .steps {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        .features,
+        .packages,
+        .pricing-grid,
+        .steps,
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        .search-fields {
+          grid-template-columns: 1fr;
+        }
+        .testimonial {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <nav>
+        <div class="brand">
+          <div class="brand-mark">
+            <svg viewBox="0 0 24 24">
+              <path d="M2 12L22 3l-6 19-4-8-8-2z" />
+            </svg>
+          </div>
+          <div>
+            TRAVEL
+            <small>AROUND THE WORLD</small>
+          </div>
+        </div>
+        <ul class="nav-links">
+          <li class="active">Home</li>
+          <li>Packages</li>
+          <li>Destinations</li>
+          <li>Bookings</li>
+          <li>About Us</li>
+          <li>Contact</li>
+        </ul>
+        <div class="signin">Sign In &nbsp;›</div>
+      </nav>
+
+      <div class="hero-body">
+        <div class="hero-copy">
+          <div class="eyebrow">Explore. Dream. Discover.</div>
+          <h1>TRAVEL AROUND<br />THE WORLD</h1>
+          <p>
+            Paket wisata eksklusif menuju destinasi paling memukau di Indonesia,
+            dirancang untuk perjalanan yang tak terlupakan.
+          </p>
+          <a href="#packages" class="btn-primary">Jelajahi Paket &nbsp;→</a>
+        </div>
+        <div class="hero-art">
+          <svg viewBox="0 0 400 320" fill="none">
+            <path
+              d="M40 260 L120 210 L160 240 L110 270 Z"
+              fill="#ffffff"
+              opacity="0.9"
+            />
+            <path d="M120 210 L280 60 L200 220 L160 240 Z" fill="#ffffff" />
+            <path d="M200 220 L280 60 L230 250 Z" fill="#eaf3ff" />
+            <path
+              d="M30 30 Q120 10 220 60 Q260 80 300 60"
+              stroke="#ffffff"
+              stroke-width="2"
+              stroke-dasharray="6 8"
+              fill="none"
+              opacity="0.6"
+            />
+            <circle cx="300" cy="60" r="4" fill="#ffffff" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <div class="search-card">
+      <div class="search-tabs">
+        <span class="active">Popularity</span>
+        <span>🏨 Hotels</span>
+        <span>🚗 Cars</span>
+        <span>🎟 Experiences</span>
+      </div>
+      <div class="search-fields">
+        <div class="field">
+          <label>From</label>
+          <div class="value">Surabaya-Sidoarjo</div>
+        </div>
+        <div class="field">
+          <label>To</label>
+          <div class="value">Refreshing</div>
+        </div>
+        <div class="field">
+          <label>Depart</label>
+          <div class="value">Errorr</div>
+        </div>
+        <div class="field">
+          <label>Return</label>
+          <div class="value">Errorr</div>
+        </div>
+        <button>Cari</button>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <path d="M3 12h18M3 6h18M3 18h18" />
+          </svg>
+        </div>
+        <div>
+          <h4>Jaminan Harga Terbaik</h4>
+          <p>Dapatkan penawaran terbaik atau kami cocokkan.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z" />
+          </svg>
+        </div>
+        <div>
+          <h4>Pemesanan Aman</h4>
+          <p>Perjalanan Anda aman bersama kami.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M9 9a3 3 0 016 0c0 2-3 2-3 4" />
+          </svg>
+        </div>
+        <div>
+          <h4>Dukungan 24/7</h4>
+          <p>Kami siap membantu kapan saja.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <rect x="4" y="7" width="16" height="13" rx="2" />
+            <path d="M9 7V5a3 3 0 016 0v2" />
+          </svg>
+        </div>
+        <div>
+          <h4>Paket Kustom</h4>
+          <p>Pengalaman yang dirancang khusus untuk Anda.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="packages">
+      <div class="section-head">
+        <h2>Paket Populer</h2>
+        <span class="link">Lihat Semua Paket ›</span>
+      </div>
+      <div class="packages">
+        <div class="package-card">
+          <div class="package-img greece">
+            <img
+              src="https://assets.kompasiana.com/items/album/2023/01/02/alun-alun-sby-63b2acf308a8b57571561553.jpg?t=o&v=770"
+              alt="Alun Alun Surabaya"
+              width="100%"
+              height="100%"
+            />
+          </div>
+          <div class="package-body">
+            <div class="loc">📍 Surabaya &nbsp;•&nbsp; 1 Hari / 24 Jam</div>
+            <h4>Alun Alun Surabaya</h4>
+            <div class="package-footer">
+              <span class="price">50 Ribu</span>
+              <span class="rating">★ 4.9</span>
+            </div>
+          </div>
+        </div>
+        <div class="package-card">
+          <div class="package-img maldives">
+            <img
+              src="https://tse2.mm.bing.net/th/id/OIP.DJ74_YeUgSWSBBz8WhcI3wHaE7?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
+              alt="Alun Sidoarjo"
+              width="100%"
+              height="100%"
+            />
+          </div>
+          <div class="package-body">
+            <div class="loc">📍 Sidoarjo &nbsp;•&nbsp; 1 Hari / 24 Jam</div>
+            <h4>Alun Alun Sidoarjo</h4>
+            <div class="package-footer">
+              <span class="price">50 Ribu</span>
+              <span class="rating">★ 4.5</span>
+            </div>
+          </div>
+        </div>
+        <div class="package-card">
+          <div class="package-img canada">
+            <img
+              src="https://asset-2.tribunnews.com/surabaya/foto/bank/originals/Pesona-Jalan-Tunjungan-Surabaya-Wisata-Malam-Kuliner-hingga-Cagar-Budaya.jpg"
+              alt="Jalan Tunjungan"
+              width="100%"
+              height="100%"
+            />
+          </div>
+          <div class="package-body">
+            <div class="loc">📍 Tunjungan &nbsp;•&nbsp; 1 Hari / 24 Jam</div>
+            <h4>Jalan Tunjungan</h4>
+            <div class="package-footer">
+              <span class="price">100 Ribu</span>
+              <span class="rating">★ 5.0</span>
+            </div>
+          </div>
+        </div>
+        <div class="package-card">
+          <div class="package-img japan">
+            <img
+              src="https://www.metrotoday.id/wp-content/uploads/2025/11/perempatn-gedangan-2025.jpg"
+              alt="Penjelajahan Jepang"
+              width="100%"
+              height="100%"
+            />
+          </div>
+          <div class="package-body">
+            <div class="loc">📍 Gedangan &nbsp;•&nbsp; Hati-Hati</div>
+            <h4>Perempatan Gedanagan</h4>
+            <div class="package-footer">
+              <span class="price">Uang Bensin</span>
+              <span class="rating">★ 4.0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="pricing-wrap">
+        <h2>Detail Harga</h2>
+        <div class="pricing-grid">
+          <div class="price-card">
+            <h4>Economy</h4>
+            <div class="desc">Perjalanan hemat untuk semua orang</div>
+            <div class="amount">$499<span> /orang</span></div>
+            <ul>
+              <li>✓ Kelas Ekonomi</li>
+              <li>✓ Bagasi 20kg</li>
+              <li>✓ Hotel Standar</li>
+              <li>✓ Transfer Bandara</li>
+            </ul>
+            <button>Pilih Paket</button>
+          </div>
+          <div class="price-card popular">
+            <span class="badge">Paling Populer</span>
+            <h4>Premium</h4>
+            <div class="desc">Nyaman dan berpengalaman</div>
+            <div class="amount">$899<span> /orang</span></div>
+            <ul>
+              <li>✓ Kelas Ekonomi Premium</li>
+              <li>✓ Bagasi 25kg</li>
+              <li>✓ Hotel Bintang 4</li>
+              <li>✓ Transfer Bandara</li>
+              <li>✓ Tur Kota</li>
+            </ul>
+            <button>Pilih Paket</button>
+          </div>
+          <div class="price-card">
+            <h4>Business</h4>
+            <div class="desc">Perjalanan mewah dan fleksibel</div>
+            <div class="amount">$1,499<span> /orang</span></div>
+            <ul>
+              <li>✓ Kelas Bisnis</li>
+              <li>✓ Bagasi 30kg</li>
+              <li>✓ Hotel Bintang 5</li>
+              <li>✓ Tur Kota</li>
+              <li>✓ Akses Lounge</li>
+            </ul>
+            <button>Pilih Paket</button>
+          </div>
+          <div class="price-card">
+            <h4>Luxury</h4>
+            <div class="desc">Pengalaman perjalanan terbaik</div>
+            <div class="amount">$2,499<span> /orang</span></div>
+            <ul>
+              <li>✓ Kelas First Class</li>
+              <li>✓ Bagasi Bebas</li>
+              <li>✓ Hotel/Villa Premium</li>
+              <li>✓ Transfer Privat</li>
+              <li>✓ Pengalaman Eksklusif</li>
+            </ul>
+            <button>Pilih Paket</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head" style="justify-content: center">
+        <h2>Cara Memesan</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+              <path
+                d="M12 2C7 2 4 6 4 10c0 6 8 12 8 12s8-6 8-12c0-4-3-8-8-8z"
+              />
+              <circle cx="12" cy="10" r="2" />
+            </svg>
+          </div>
+          <h4>Pilih Destinasi</h4>
+          <p>Temukan tempat impian Anda dari ratusan pilihan.</p>
+        </div>
+        <div class="step">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+              <path d="M4 6h16M4 12h16M4 18h10" />
+            </svg>
+          </div>
+          <h4>Pilih Paket</h4>
+          <p>Sesuaikan paket dengan kebutuhan perjalanan.</p>
+        </div>
+        <div class="step">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+              <rect x="3" y="6" width="18" height="13" rx="2" />
+              <path d="M3 10h18" />
+            </svg>
+          </div>
+          <h4>Lakukan Pembayaran</h4>
+          <p>Amankan pemesanan dengan mudah dan cepat.</p>
+        </div>
+        <div class="step">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+              <path d="M2 12L22 3l-6 19-4-8-8-2z" />
+            </svg>
+          </div>
+          <h4>Nikmati Perjalanan</h4>
+          <p>Bawa kenangan indah yang akan diingat selamanya.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="testimonial">
+        <div class="avatar"></div>
+        <div>
+          <blockquote>
+            “Pengalaman perjalanan terbaik yang pernah saya rasakan. Semuanya
+            diatur dengan sempurna dari awal sampai akhir.”
+          </blockquote>
+          <div class="who">— Candra Kos Kamar 3</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-grid">
+        <div>
+          <div class="brand" style="margin-bottom: 14px">
+            <div class="brand-mark">
+              <svg viewBox="0 0 24 24">
+                <path d="M2 12L22 3l-6 19-4-8-8-2z" />
+              </svg>
+            </div>
+            <div>TRAVEL<br /><small>AROUND THE WORLD</small></div>
+          </div>
+          <p style="font-size: 0.82rem; opacity: 0.7; max-width: 260px">
+            Membantu Anda menjelajahi dunia dengan pengalaman perjalanan yang
+            tak terlupakan.
+          </p>
+        </div>
+        <div>
+          <h5>Destinasi</h5>
+          <ul>
+            <li>Yunani</li>
+            <li>Maladewa</li>
+            <li>Kanada</li>
+            <li>Jepang</li>
+          </ul>
+        </div>
+        <div>
+          <h5>Perusahaan</h5>
+          <ul>
+            <li>Tentang Kami</li>
+            <li>Karier</li>
+            <li>Blog</li>
+            <li>Kontak</li>
+          </ul>
+        </div>
+        <div>
+          <h5>Dukungan</h5>
+          <ul>
+            <li>Pusat Bantuan</li>
+            <li>Kebijakan Privasi</li>
+            <li>Syarat & Ketentuan</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Travel Around The World. Seluruh hak cipta dilindungi.
+      </div>
+    </footer>
+  </body>
+</html>

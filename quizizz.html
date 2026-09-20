@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quizizz | Learn-Space</title>
+  <link rel="stylesheet" href="quizizz.css">
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body>
+
+<div class="quiz-page">
+
+  <aside class="quiz-sidebar">
+
+    <a href="dashboard.html" class="brand">
+
+      <div class="brand-icon">
+        <i data-feather="book-open"></i>
+      </div>
+
+      <div>
+        <strong>Learn-Space</strong>
+        <small>Learning Platform</small>
+      </div>
+
+    </a>
+
+
+    <div class="sidebar-course">
+
+      <span class="sidebar-label">
+        QUIZIZZ
+      </span>
+
+      <strong id="sidebarQuizTitle">
+        Quizizz
+      </strong>
+
+      <small>
+        Latihan soal pilihan ganda
+      </small>
+
+    </div>
+
+
+    <nav class="sidebar-menu">
+
+      <a
+        href="dashboard.html"
+        class="sidebar-item"
+      >
+        <i data-feather="grid"></i>
+        <span>Dashboard</span>
+      </a>
+
+
+      <a
+        href="#"
+        class="sidebar-item active"
+      >
+        <i data-feather="check-square"></i>
+        <span>Quizizz</span>
+      </a>
+
+
+      <a
+        href="profile.html"
+        class="sidebar-item"
+      >
+        <i data-feather="user"></i>
+        <span>Profile</span>
+      </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+      <a
+        href="dashboard.html"
+        class="back-dashboard"
+      >
+        <i data-feather="arrow-left"></i>
+        <span>Kembali ke Dashboard</span>
+      </a>
+
+    </div>
+
+  </aside>
+
+
+  <main class="quiz-main">
+
+    <header class="quiz-topbar">
+
+      <div>
+
+        <span class="top-label">
+          LATIHAN SOAL
+        </span>
+
+        <h1>Quizizz</h1>
+
+        <p>
+          20 soal • 4 pilihan jawaban • 1 jawaban benar
+        </p>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="quiz-profile"
+        id="quizProfileLink"
+      >
+
+        <div class="quiz-avatar">
+          <span id="quizAvatar">S</span>
+        </div>
+
+        <div>
+
+          <strong id="quizUserName">
+            Siswa
+          </strong>
+
+          <small>
+            <span id="quizLevel">SD</span>
+            •
+            <span id="quizClass">Kelas 1</span>
+          </small>
+
+        </div>
+
+        <i data-feather="chevron-right"></i>
+
+      </button>
+
+    </header>
+
+
+    <section
+      class="quiz-card"
+      id="quizCard"
+    >
+
+      <div class="quiz-card-head">
+
+        <div>
+
+          <span
+            class="quiz-subject"
+            id="quizSubject"
+          >
+            Matematika
+          </span>
+
+          <span
+            class="result-badge"
+            id="resultBadge"
+          ></span>
+
+        </div>
+
+        <strong
+          class="question-counter"
+          id="questionCounter"
+        >
+          1 / 20
+        </strong>
+
+      </div>
+
+
+      <div class="quiz-progress">
+
+        <div
+          id="progressFill"
+          class="progress-fill"
+        ></div>
+
+      </div>
+
+
+      <div class="question-area">
+
+        <div class="question-icon">
+
+          <i data-feather="help-circle"></i>
+
+        </div>
+
+        <h2 id="questionText">
+          Soal akan muncul di sini.
+        </h2>
+
+      </div>
+
+
+      <div
+        class="options-container"
+        id="optionsContainer"
+      ></div>
+
+
+      <div
+        class="explanation-box"
+        id="explanationBox"
+        hidden
+      >
+
+        <div class="explanation-header">
+
+          <div class="explanation-icon">
+            <i data-feather="book-open"></i>
+          </div>
+
+          <div>
+
+            <span>
+              PENJELASAN
+            </span>
+
+            <h3 id="explanationTitle">
+              Penjelasan
+            </h3>
+
+          </div>
+
+        </div>
+
+
+        <p id="explanationText"></p>
+
+
+        <strong id="correctAnswerText"></strong>
+
+      </div>
+
+
+      <div class="quiz-actions">
+
+        <span class="hint">
+          Pilih satu jawaban terlebih dahulu.
+        </span>
+
+        <button
+          type="button"
+          id="nextButton"
+          class="next-button"
+          disabled
+        >
+
+          <span>
+            Jawab & Lanjutkan
+          </span>
+
+          <i data-feather="arrow-right"></i>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <section
+      class="result-screen"
+      id="resultScreen"
+      hidden
+    >
+
+      <div class="result-icon">
+        <i data-feather="award"></i>
+      </div>
+
+      <span class="top-label">
+        QUIZ SELESAI
+      </span>
+
+      <h2>
+        Hasil Latihanmu
+      </h2>
+
+      <p>
+        Kamu sudah menyelesaikan 20 soal.
+      </p>
+
+
+      <div class="score-card">
+
+        <span>SKOR</span>
+
+        <strong id="finalScore">
+          0%
+        </strong>
+
+        <small id="finalLevel">
+          SD • Kelas 1
+        </small>
+
+      </div>
+
+
+      <div class="result-stats">
+
+        <div class="result-stat correct">
+
+          <strong id="finalCorrect">
+            0
+          </strong>
+
+          <span>
+            Jawaban Benar
+          </span>
+
+        </div>
+
+
+        <div class="result-stat wrong">
+
+          <strong id="finalWrong">
+            0
+          </strong>
+
+          <span>
+            Jawaban Salah
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="result-actions">
+
+        <button
+          type="button"
+          class="retry-button"
+          id="retryButton"
+        >
+
+          <i data-feather="refresh-cw"></i>
+
+          Ulangi Quiz
+
+        </button>
+
+
+        <button
+          type="button"
+          class="dashboard-button"
+          id="dashboardButton"
+        >
+
+          <i data-feather="grid"></i>
+
+          Kembali ke Dashboard
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <footer class="quiz-footer">
+
+      <span>
+        © 2026 Learn-Space
+      </span>
+
+      <span>
+        Quizizz •
+        <span id="footerLevel">
+          Latihan
+        </span>
+      </span>
+
+    </footer>
+
+  </main>
+
+</div>
+
+
+<script src="quizizz.js"></script>
+
+</body>
+</html>

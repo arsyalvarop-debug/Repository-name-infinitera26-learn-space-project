@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Learn-Space — Materi</title>
+
+    <link rel="stylesheet" href="materi.css" />
+
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+
+  <body>
+    <header class="material-topbar">
+      <a href="dashboard.html" class="back-button">
+        <i data-feather="arrow-left"></i>
+
+        Kembali ke Dashboard
+      </a>
+
+      <div class="material-brand">
+        <span class="material-brand-icon">
+          <i data-feather="book-open"></i>
+        </span>
+
+        Learn-Space
+      </div>
+    </header>
+
+    <main class="material-page">
+      <!-- HEADER -->
+
+      <section class="material-header">
+        <div class="material-breadcrumb">
+          <span id="levelBreadcrumb"> SD </span>
+
+          <i data-feather="chevron-right"></i>
+
+          <span id="classBreadcrumb"> Kelas 1 </span>
+
+          <i data-feather="chevron-right"></i>
+
+          <strong id="subjectBreadcrumb"> Matematika </strong>
+        </div>
+
+        <span class="material-label"> MATERI PEMBELAJARAN </span>
+
+        <h1 id="subjectTitle">Matematika</h1>
+
+        <p id="subjectDescription">
+          Pelajari materi secara bertahap dan pahami konsep sebelum mengerjakan
+          latihan.
+        </p>
+      </section>
+
+      <!-- LAYOUT -->
+
+      <div class="material-layout">
+        <!-- SIDEBAR MATERI -->
+
+        <aside class="material-sidebar">
+          <div class="sidebar-title">Daftar Materi</div>
+
+          <button class="chapter active">
+            <span class="chapter-number"> 01 </span>
+
+            <span> Pengenalan Materi </span>
+          </button>
+
+          <button class="chapter">
+            <span class="chapter-number"> 02 </span>
+
+            <span> Konsep Dasar </span>
+          </button>
+
+          <button class="chapter">
+            <span class="chapter-number"> 03 </span>
+
+            <span> Contoh Soal </span>
+          </button>
+
+          <button class="chapter">
+            <span class="chapter-number"> 04 </span>
+
+            <span> Latihan </span>
+          </button>
+        </aside>
+
+        <!-- CONTENT -->
+
+        <article class="material-content">
+          <div class="content-card">
+            <div class="content-card-top">
+              <span class="chapter-tag"> BAB 01 </span>
+
+              <span class="reading-time">
+                <i data-feather="clock"></i>
+                10 menit
+              </span>
+            </div>
+
+            <h2 id="materialHeading">Pengenalan Materi</h2>
+
+            <div class="material-text" id="materialText">
+              <p>
+                Selamat datang di materi pembelajaran. Pada bagian ini kamu akan
+                mempelajari konsep dasar sebelum melanjutkan ke pembahasan
+                berikutnya.
+              </p>
+
+              <h3>Apa yang akan kamu pelajari?</h3>
+
+              <p>
+                Materi disusun secara bertahap agar kamu dapat memahami konsep
+                dengan lebih mudah. Bacalah setiap bagian sebelum mengerjakan
+                latihan.
+              </p>
+
+              <div class="learning-box">
+                <div class="learning-icon">
+                  <i data-feather="target"></i>
+                </div>
+
+                <div>
+                  <strong> Tujuan Pembelajaran </strong>
+
+                  <p>
+                    Memahami konsep dasar dan mampu menerapkannya dalam contoh
+                    sederhana.
+                  </p>
+                </div>
+              </div>
+
+              <h3>Ringkasan</h3>
+
+              <p>
+                Setelah menyelesaikan materi ini, kamu dapat melanjutkan ke
+                latihan untuk menguji pemahamanmu.
+              </p>
+            </div>
+
+            <!-- COMPLETE -->
+
+            <div class="complete-section">
+              <div>
+                <strong> Sudah memahami materi ini? </strong>
+
+                <span>
+                  Tandai selesai setelah kamu benar-benar selesai
+                  mempelajarinya.
+                </span>
+              </div>
+
+              <button id="completeMaterial" class="complete-button">
+                Selesaikan Materi
+
+                <i data-feather="check"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <script src="materi.js"></script>
+  </body>
+</html>

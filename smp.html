@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LearnSpace — SMP</title>
+  <link rel="stylesheet" href="smp.css">
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="brand"><span class="brand-mark"><i data-feather="book-open"></i></span> LearnSpace</a>
+    <a href="index.html" class="back"><i data-feather="arrow-left"></i> Kembali</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="eyebrow">JENJANG SMP</span>
+        <h1>Belajar jadi lebih <span>seru dan terarah.</span></h1>
+        <p>Pilih kelas untuk melihat materi yang sesuai. Materi dibuat sederhana agar mudah dipahami dan dipelajari bertahap.</p>
+      </div>
+      <div class="hero-art">
+        <i data-feather="book-open"></i>
+        <div class="floating one"><i data-feather="star"></i> Materi baru</div>
+        <div class="floating two"><i data-feather="check-circle"></i> Siap dipelajari</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">PILIH KELAS</span>
+          <h2>Materi SMP</h2>
+        </div>
+        <span class="count"><i data-feather="layers"></i> 3 kelas</span>
+      </div>
+
+      <div class="class-grid">
+        <a class="class-card" href="#kelas1"><span class="icon blue"><i data-feather="sun"></i></span><b>Kelas 7</b><small>Mengenal dasar membaca, menulis, berhitung.</small><span class="open">Buka materi <i data-feather="arrow-right"></i></span></a>
+        <a class="class-card" href="#kelas2"><span class="icon purple"><i data-feather="edit-3"></i></span><b>Kelas 8</b><small>Bahasa, matematika, dan pengetahuan sekitar.</small><span class="open">Buka materi <i data-feather="arrow-right"></i></span></a>
+        <a class="class-card" href="#kelas3"><span class="icon green"><i data-feather="compass"></i></span><b>Kelas 9</b><small>Operasi hitung, cerita, dan lingkungan.</small><span class="open">Buka materi <i data-feather="arrow-right"></i></span></a>
+        <a class="class-card" href="#kelas4"><span class="icon orange"><i data-feather="globe"></i></span><b>Kelas 10</b><small>Matematika, IPA, Bahasa Indonesia, dan IPS.</small><span class="open">Buka materi <i data-feather="arrow-right"></i></span></a>
+        <a class="class-card" href="#kelas5"><span class="icon pink"><i data-feather="activity"></i></span><b>Kelas 11</b><small>Konsep sains, pecahan, teks, dan proyek.</small><span class="open">Buka materi <i data-feather="arrow-right"></i></span></a>
+        <a class="class-card" href="#kelas6"><span class="icon teal"><i data-feather="award"></i></span><b>Kelas 12</b><small>Persiapan materi akhir SD dan latihan.</small><span class="open">Buka materi <i data-feather="arrow-right"></i></span></a>
+      </div>
+    </section>
+
+    <section class="section lesson-area" id="kelas4">
+      <div class="lesson-head">
+        <div>
+          <span class="eyebrow">CONTOH MATERI</span>
+          <h2>Kelas 10 — IPAS</h2>
+          <p>Materi contoh yang langsung bisa dikembangkan menjadi modul pembelajaran.</p>
+        </div>
+        <span class="level"><i data-feather="book"></i> Pemula</span>
+      </div>
+
+      <div class="lesson-grid">
+        <article class="lesson">
+          <span class="lesson-number">01</span>
+          <div><h3>Persamaan linear</h3><p>Memahami konsep persamaan linear dan cara menentukan nilai variabel.</p></div>
+          <button onclick="this.innerHTML='Sudah dibuka'; this.classList.add('done')"><i data-feather="play"></i> Mulai</button>
+        </article>
+        <article class="lesson">
+          <span class="lesson-number">02</span>
+          <div><h3>Pertidaksamaan</h3><p>Mengenal pertidaksamaan dan menyelesaikan soal dengan langkah yang tepat.</p></div>
+          <button onclick="this.innerHTML='Sudah dibuka'; this.classList.add('done')"><i data-feather="play"></i> Mulai</button>
+        </article>
+        <article class="lesson">
+          <span class="lesson-number">03</span>
+          <div><h3>Latihan pemahaman</h3><p>Soal singkat untuk mengecek pemahaman setelah membaca materi.</p></div>
+          <button onclick="this.innerHTML='Mulai latihan'; location.href='#tugas'"><i data-feather="edit-3"></i> Latihan</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="section task-box" id="tugas">
+      <div class="task-icon"><i data-feather="clipboard"></i></div>
+      <div><span class="eyebrow">TUGAS</span><h2>Latihan Kelas 10</h2><p>Kerjakan latihan setelah menyelesaikan materi. Progress belum dianggap selesai sebelum siswa menandai aktivitasnya.</p></div>
+      <button class="primary" onclick="alert('Halaman tugas siap dihubungkan ke sistem pengumpulan tugas.')">Lihat Tugas <i data-feather="arrow-right"></i></button>
+    </section>
+  </main>
+  <script>feather.replace();</script>
+</body>
+</html>

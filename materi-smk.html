@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Materi SMK — Learn-Space</title>
+<link rel="stylesheet" href="materi-smk.css">
+<script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+<div class="learning-page">
+<aside class="lesson-sidebar">
+  <a href="dashboard.html" class="brand">
+    <span class="brand-icon"><i data-feather="book-open"></i></span>
+    <span>Learn-Space</span>
+  </a>
+  <div class="sidebar-heading" id="sidebarSubject"></div>
+  <div class="course-title" id="courseTitle"></div>
+  <div class="course-phase" id="coursePhase"></div>
+  <nav class="chapter-nav" id="chapterNav"></nav>
+  <a href="dashboard.html" class="back-dashboard">
+    <i data-feather="arrow-left"></i><span>Kembali ke Dashboard</span>
+  </a>
+</aside>
+
+<main class="lesson-main">
+<header class="lesson-topbar">
+  <div class="breadcrumb">
+    <a href="dashboard.html">Dashboard</a>
+    <i data-feather="chevron-right"></i>
+    <span id="breadcrumbSubject"></span>
+    <i data-feather="chevron-right"></i>
+    <strong id="breadcrumbGrade"></strong>
+  </div>
+  <div class="top-course">
+    <span id="topSubject"></span>
+    <strong id="topCourse"></strong>
+  </div>
+</header>
+
+<section class="lesson-hero">
+  <div class="hero-content">
+    <span class="eyebrow">MATERI PEMBELAJARAN • SMK / MAK</span>
+    <h1><span id="heroSubject"></span> <span id="heroGrade"></span></h1>
+    <p class="hero-description" id="heroDescription"></p>
+    <div class="phase-note" id="phaseNote"></div>
+    <div class="hero-meta">
+      <span><i data-feather="book-open"></i><b id="chapterCount"></b></span>
+      <span><i data-feather="briefcase"></i>Teori + Praktik</span>
+      <span><i id="heroIcon" data-feather="book-open"></i>SMK</span>
+    </div>
+  </div>
+  <div class="hero-illustration">
+    <div class="math-symbol symbol-one">+</div>
+    <div class="math-symbol symbol-plus">A</div>
+    <div class="math-symbol symbol-two">=</div>
+    <div class="math-symbol symbol-equal">?</div>
+    <div class="math-symbol symbol-three">✓</div>
+    <div class="hero-circle"><i id="heroIconCircle" data-feather="briefcase"></i></div>
+  </div>
+</section>
+
+<div id="chapterContainer"></div>
+
+<section class="finish-card">
+  <div class="finish-icon"><i data-feather="award"></i></div>
+  <div>
+    <span class="eyebrow">SELESAI MEMPELAJARI MATERI?</span>
+    <h2>Siap menerapkan kompetensimu?</h2>
+    <p>Gunakan penjelasan, fokus belajar, contoh, dan rangkuman sebelum masuk ke tugas atau latihan.</p>
+  </div>
+  <button class="practice-button" id="practiceButton" type="button">
+    <i data-feather="edit-3"></i>Latihan
+  </button>
+</section>
+
+<footer class="lesson-footer">
+  <span>© 2026 Learn-Space</span>
+  <span id="footerCourse">Materi SMK</span>
+</footer>
+</main>
+</div>
+<script src="materi-smk.js"></script>
+</body>
+</html>

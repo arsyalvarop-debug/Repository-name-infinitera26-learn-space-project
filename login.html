@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Login — Learn-Space</title>
+
+    <link rel="stylesheet" href="login.css" />
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+
+  <body>
+    <main class="auth-page">
+      <!-- LEFT SIDE -->
+      <section class="auth-showcase">
+        <a href="index.html" class="brand">
+          <div class="brand-icon">
+            <i data-feather="book-open"></i>
+          </div>
+
+          <span>Learn-Space</span>
+        </a>
+
+        <div class="showcase-content">
+          <span class="eyebrow"> PLATFORM PEMBELAJARAN </span>
+
+          <h1>
+            Belajar dimulai
+            <span>dari sini.</span>
+          </h1>
+
+          <p>
+            Masuk ke akunmu untuk melanjutkan perjalanan belajar, atau gunakan
+            akun tamu untuk mencoba E-Learning tanpa membuat akun terlebih
+            dahulu.
+          </p>
+
+          <div class="showcase-points">
+            <div class="showcase-point">
+              <div class="point-icon">
+                <i data-feather="layers"></i>
+              </div>
+
+              <div>
+                <strong>Materi Terstruktur</strong>
+                <span>Belajar sesuai jenjang dan kelas.</span>
+              </div>
+            </div>
+
+            <div class="showcase-point">
+              <div class="point-icon">
+                <i data-feather="activity"></i>
+              </div>
+
+              <div>
+                <strong>Progress Belajar</strong>
+                <span>Pantau perkembangan belajarmu.</span>
+              </div>
+            </div>
+
+            <div class="showcase-point">
+              <div class="point-icon">
+                <i data-feather="check-circle"></i>
+              </div>
+
+              <div>
+                <strong>Evaluasi</strong>
+                <span>Uji pemahaman setelah mempelajari materi.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-footer">© 2026 Learn-Space</div>
+      </section>
+
+      <!-- RIGHT SIDE -->
+      <section class="auth-panel">
+        <div class="auth-box">
+          <!-- BACK -->
+          <a href="index.html" class="back-link">
+            <i data-feather="arrow-left"></i>
+            Kembali
+          </a>
+
+          <!-- LOGIN HEADER -->
+          <div class="auth-heading">
+            <span class="mobile-brand">
+              <i data-feather="book-open"></i>
+            </span>
+
+            <span class="eyebrow"> SELAMAT DATANG </span>
+
+            <h2>Masuk ke Learn-Space</h2>
+
+            <p>Masukkan akunmu untuk melanjutkan belajar.</p>
+          </div>
+
+          <!-- LOGIN FORM -->
+          <form id="loginForm" class="auth-form">
+            <label>
+              <span>Username atau Email</span>
+
+              <div class="input-wrapper">
+                <i data-feather="user"></i>
+
+                <input
+                  type="text"
+                  id="loginIdentity"
+                  placeholder="Masukkan username atau email"
+                  autocomplete="username"
+                  required
+                />
+              </div>
+            </label>
+
+            <label>
+              <span>Password</span>
+
+              <div class="input-wrapper">
+                <i data-feather="lock"></i>
+
+                <input
+                  type="password"
+                  id="loginPassword"
+                  placeholder="Masukkan password"
+                  autocomplete="current-password"
+                  required
+                />
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  id="toggleLoginPassword"
+                  aria-label="Tampilkan password"
+                >
+                  <i data-feather="eye"></i>
+                </button>
+              </div>
+            </label>
+
+            <div class="form-options">
+              <label class="remember">
+                <input type="checkbox" id="rememberMe" />
+                <span>Ingat saya</span>
+              </label>
+
+              <a href="#" id="forgotPassword"> Lupa password? </a>
+            </div>
+
+            <button type="submit" class="primary-button">
+              <span>Masuk</span>
+              <i data-feather="arrow-right"></i>
+            </button>
+          </form>
+
+          <!-- MESSAGE -->
+          <div id="loginMessage" class="form-message"></div>
+
+          <!-- DIVIDER -->
+          <div class="divider">
+            <span>atau</span>
+          </div>
+
+          <!-- GUEST -->
+          <button id="guestButton" class="guest-button">
+            <span class="guest-icon">
+              <i data-feather="user"></i>
+            </span>
+
+            <span class="guest-text">
+              <strong>Masuk sebagai Tamu</strong>
+              <small>Jelajahi Learn-Space tanpa membuat akun</small>
+            </span>
+
+            <i data-feather="arrow-right"></i>
+          </button>
+
+          <!-- REGISTER -->
+          <div class="register-area">
+            <span>Belum punya akun?</span>
+
+            <button type="button" id="showRegister">Buat akun</button>
+          </div>
+
+          <!-- REGISTER FORM -->
+          <form id="registerForm" class="auth-form register-form hidden">
+            <div class="register-heading">
+              <button type="button" id="backToLogin" class="mini-back">
+                <i data-feather="arrow-left"></i>
+              </button>
+
+              <div>
+                <span class="eyebrow">AKUN BARU</span>
+                <h3>Buat akun Learn-Space</h3>
+              </div>
+            </div>
+
+            <label>
+              <span>Nama</span>
+
+              <div class="input-wrapper">
+                <i data-feather="user"></i>
+
+                <input
+                  type="text"
+                  id="registerName"
+                  placeholder="Masukkan nama"
+                  required
+                />
+              </div>
+            </label>
+
+            <label>
+              <span>Username</span>
+
+              <div class="input-wrapper">
+                <i data-feather="at-sign"></i>
+
+                <input
+                  type="text"
+                  id="registerUsername"
+                  placeholder="Buat username"
+                  required
+                />
+              </div>
+            </label>
+
+            <label>
+              <span>Email</span>
+
+              <div class="input-wrapper">
+                <i data-feather="mail"></i>
+
+                <input
+                  type="email"
+                  id="registerEmail"
+                  placeholder="nama@email.com"
+                  required
+                />
+              </div>
+            </label>
+
+            <label>
+              <span>Password</span>
+
+              <div class="input-wrapper">
+                <i data-feather="lock"></i>
+
+                <input
+                  type="password"
+                  id="registerPassword"
+                  placeholder="Buat password"
+                  required
+                />
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  id="toggleRegisterPassword"
+                  aria-label="Tampilkan password"
+                >
+                  <i data-feather="eye"></i>
+                </button>
+              </div>
+            </label>
+
+            <button type="submit" class="primary-button">
+              <span>Buat Akun</span>
+              <i data-feather="arrow-right"></i>
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      feather.replace();
+    </script>
+
+    <script src="login.js"></script>
+  </body>
+</html>

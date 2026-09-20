@@ -1,0 +1,727 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(79, 110, 220, 0.08),
+      transparent 25%
+    ),
+    #f7f9fc;
+
+  color: #17284d;
+}
+
+/* =================================
+   TOPBAR
+================================= */
+
+.material-topbar {
+  height: 72px;
+
+  padding: 0 5%;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  border-bottom: 1px solid #e5eaf2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  backdrop-filter: blur(15px);
+
+  position: sticky;
+  top: 0;
+
+  z-index: 20;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #66758e;
+
+  text-decoration: none;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.back-button svg {
+  width: 16px;
+}
+
+.material-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #152653;
+
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.material-brand-icon {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #193c91, #4175e6);
+
+  color: white;
+
+  display: grid;
+  place-items: center;
+}
+
+.material-brand-icon svg {
+  width: 17px;
+}
+
+/* =================================
+   PAGE
+================================= */
+
+.material-page {
+  width: min(1180px, calc(100% - 40px));
+
+  margin: auto;
+
+  padding: 55px 0 80px;
+}
+
+/* =================================
+   HEADER
+================================= */
+
+.material-header {
+  max-width: 760px;
+
+  margin-bottom: 35px;
+}
+
+.material-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #91a0b6;
+
+  font-size: 10px;
+}
+
+.material-breadcrumb svg {
+  width: 12px;
+}
+
+.material-breadcrumb strong {
+  color: #365fbe;
+}
+
+.material-label {
+  display: block;
+
+  margin-top: 28px;
+
+  color: #3567d5;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+}
+
+.material-header h1 {
+  margin-top: 9px;
+
+  color: #142654;
+
+  font-size: 42px;
+
+  letter-spacing: -0.055em;
+}
+
+.material-header p {
+  margin-top: 11px;
+
+  color: #7c8ba3;
+
+  font-size: 12px;
+
+  line-height: 1.8;
+}
+
+/* =================================
+   LAYOUT
+================================= */
+
+.material-layout {
+  display: grid;
+
+  grid-template-columns: 235px 1fr;
+
+  gap: 25px;
+
+  align-items: start;
+}
+
+/* =================================
+   SIDEBAR
+================================= */
+
+.material-sidebar {
+  padding: 18px;
+
+  background: white;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 16px;
+}
+
+.sidebar-title {
+  padding: 3px 9px 15px;
+
+  color: #9aa7b9;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+.chapter {
+  width: 100%;
+
+  min-height: 46px;
+
+  padding: 8px 9px;
+
+  border: 0;
+
+  border-radius: 9px;
+
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  color: #68778f;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  font-size: 10px;
+
+  transition: 0.2s ease;
+}
+
+.chapter:hover {
+  background: #f5f7fb;
+}
+
+.chapter.active {
+  background: #edf3ff;
+
+  color: #2d62cf;
+
+  font-weight: 700;
+}
+
+.chapter-number {
+  color: #a6b2c4;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.chapter.active .chapter-number {
+  color: #4b73cb;
+}
+
+/* =================================
+   CONTENT CARD
+================================= */
+
+.content-card {
+  padding: 35px 40px;
+
+  background: white;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 20px;
+
+  box-shadow: 0 15px 45px rgba(24, 43, 80, 0.05);
+}
+
+.content-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chapter-tag {
+  padding: 6px 9px;
+
+  border-radius: 6px;
+
+  background: #edf3ff;
+
+  color: #3568d4;
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.reading-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  color: #9aa7b8;
+
+  font-size: 9px;
+}
+
+.reading-time svg {
+  width: 13px;
+}
+
+.content-card h2 {
+  margin-top: 25px;
+
+  color: #182b52;
+
+  font-size: 25px;
+
+  letter-spacing: -0.04em;
+}
+
+/* =================================
+   TEXT
+================================= */
+
+.material-text {
+  margin-top: 22px;
+
+  color: #61718b;
+
+  font-size: 12px;
+
+  line-height: 1.9;
+}
+
+.material-text p {
+  margin-bottom: 20px;
+}
+
+.material-text h3 {
+  margin: 28px 0 10px;
+
+  color: #20345c;
+
+  font-size: 14px;
+}
+
+/* =================================
+   LEARNING BOX
+================================= */
+
+.learning-box {
+  margin: 25px 0;
+
+  padding: 18px;
+
+  border-radius: 13px;
+
+  background: linear-gradient(135deg, #f3f6ff, #f7f4ff);
+
+  border: 1px solid #e2e7f7;
+
+  display: flex;
+  gap: 14px;
+}
+
+.learning-icon {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  background: white;
+
+  color: #426bd0;
+
+  display: grid;
+  place-items: center;
+
+  box-shadow: 0 5px 15px rgba(50, 80, 150, 0.07);
+}
+
+.learning-icon svg {
+  width: 17px;
+}
+
+.learning-box strong {
+  color: #263a62;
+
+  font-size: 11px;
+}
+
+.learning-box p {
+  margin-top: 4px;
+
+  margin-bottom: 0;
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+/* =================================
+   COMPLETE
+================================= */
+
+.complete-section {
+  margin-top: 38px;
+
+  padding-top: 24px;
+
+  border-top: 1px solid #edf0f4;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.complete-section strong {
+  display: block;
+
+  color: #27385c;
+
+  font-size: 11px;
+}
+
+.complete-section span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #96a2b4;
+
+  font-size: 9px;
+}
+
+.complete-button {
+  border: 0;
+
+  padding: 11px 15px;
+
+  border-radius: 9px;
+
+  background: linear-gradient(135deg, #3267d5, #574fcf);
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  cursor: pointer;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  box-shadow: 0 8px 20px rgba(49, 94, 205, 0.18);
+
+  transition: 0.2s ease;
+}
+
+.complete-button svg {
+  width: 14px;
+}
+
+.complete-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 25px rgba(49, 94, 205, 0.25);
+}
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 800px) {
+  .material-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .material-sidebar {
+    display: none;
+  }
+
+  .content-card {
+    padding: 27px 23px;
+  }
+}
+
+@media (max-width: 550px) {
+  .material-topbar {
+    padding: 0 18px;
+  }
+
+  .material-brand {
+    display: none;
+  }
+
+  .material-page {
+    width: calc(100% - 28px);
+
+    padding-top: 35px;
+  }
+
+  .material-header h1 {
+    font-size: 34px;
+  }
+
+  .complete-section {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .complete-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* =========================================
+   DARK MODE - MATERI
+========================================= */
+
+body.dark-mode {
+  background: #0d1424;
+  color: #e8eefb;
+}
+
+/* MAIN */
+body.dark-mode .lesson-main {
+  background: #0d1424;
+}
+
+/* TOPBAR */
+body.dark-mode .lesson-topbar {
+  background: #121b2e;
+  border-bottom-color: #293750;
+}
+
+body.dark-mode .breadcrumb {
+  color: #8f9db5;
+}
+
+body.dark-mode .breadcrumb strong {
+  color: #edf3ff;
+}
+
+body.dark-mode .top-course span {
+  color: #8594ab;
+}
+
+body.dark-mode .top-course strong {
+  color: #edf3ff;
+}
+
+/* HERO */
+body.dark-mode .lesson-hero {
+  background: linear-gradient(135deg, #18243a 0%, #1b2943 55%, #202d47 100%);
+
+  border-color: #33445f;
+}
+
+body.dark-mode .hero-content h1 {
+  color: #f4f7ff;
+}
+
+body.dark-mode .hero-content p {
+  color: #a5b2c8;
+}
+
+body.dark-mode .eyebrow {
+  color: #78a2ff;
+}
+
+body.dark-mode .hero-meta span {
+  background: rgba(28, 41, 64, 0.9);
+  border-color: #34445f;
+  color: #aab7ca;
+}
+
+body.dark-mode .hero-circle {
+  background: #1b2943;
+  border-color: #34445f;
+  color: #78a2ff;
+}
+
+/* CHAPTER */
+body.dark-mode .chapter-badge {
+  background: #1d3158;
+  color: #78a2ff;
+}
+
+body.dark-mode .chapter-header h2 {
+  color: #f4f7ff;
+}
+
+body.dark-mode .chapter-header p {
+  color: #98a6ba;
+}
+
+/* MATERIAL CARD */
+body.dark-mode .material-card {
+  background: #1b2943;
+  border-color: #34445f;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+
+body.dark-mode .material-card:hover {
+  background: #1e2d49;
+  border-color: #435674;
+}
+
+body.dark-mode .material-label {
+  color: #91a0b7;
+}
+
+body.dark-mode .material-card h3 {
+  color: #f2f6ff;
+}
+
+body.dark-mode .material-card > p {
+  color: #a5b2c8;
+}
+
+/* CONCEPT */
+body.dark-mode .concept-box {
+  background: #17243a;
+  border-color: #2f3f59;
+}
+
+body.dark-mode .concept-box strong {
+  color: #b8c4d7;
+}
+
+body.dark-mode .concept-box p,
+body.dark-mode .concept-box ul {
+  color: #9aa9be;
+}
+
+/* EXAMPLE */
+body.dark-mode .example-box {
+  background: #182943;
+  border-color: #304462;
+}
+
+body.dark-mode .example-icon {
+  background: #202f49;
+}
+
+body.dark-mode .example-box span {
+  color: #91abdf;
+}
+
+body.dark-mode .example-box h3 {
+  color: #eaf0fc;
+}
+
+body.dark-mode .example-box p {
+  color: #9aa9be;
+}
+
+/* MATH */
+body.dark-mode .math-example {
+  background: #17243a;
+  color: #aab7ca;
+}
+
+/* STORY */
+body.dark-mode .story-question {
+  background: #17243a;
+  border-left-color: #5d88ff;
+}
+
+body.dark-mode .story-question strong {
+  color: #b7c3d6;
+}
+
+body.dark-mode .story-question p {
+  color: #98a7bc;
+}
+
+/* SHAPE */
+body.dark-mode .shape-card {
+  background: #1b2943;
+  border-color: #34445f;
+}
+
+body.dark-mode .shape-card h3,
+body.dark-mode .shape-card strong {
+  color: #edf3ff;
+}
+
+/* TRANSACTION */
+body.dark-mode .transaction-box {
+  background: #17243a;
+}
+
+body.dark-mode .money-piece,
+body.dark-mode .money-result {
+  background: #1b2943;
+  border-color: #34445f;
+  color: #dce5f5;
+}
+
+/* FINISH */
+body.dark-mode .finish-card {
+  background: linear-gradient(135deg, #182943, #202b48);
+
+  border-color: #34445f;
+}
+
+body.dark-mode .finish-icon {
+  background: #202f49;
+}
+
+body.dark-mode .finish-card h2 {
+  color: #f1f5ff;
+}
+
+body.dark-mode .finish-card p {
+  color: #9eacc0;
+}
+
+/* FOOTER */
+body.dark-mode .lesson-footer {
+  border-top-color: #2b3952;
+  color: #8492a8;
+}

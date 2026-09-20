@@ -1,0 +1,850 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Materi SMP | Learn-Space</title>
+
+    <link rel="stylesheet" href="materi-smp.css" />
+
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+
+  <body>
+    <!-- =====================================
+       SIDEBAR
+  ====================================== -->
+
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-icon">
+          <i data-feather="book-open"></i>
+        </div>
+
+        <div>
+          <h2>Learn-Space</h2>
+          <span>Learning Platform</span>
+        </div>
+      </div>
+
+      <nav class="menu">
+        <p class="menu-title">MENU</p>
+
+        <a href="dashboard.html" class="menu-item">
+          <i data-feather="grid"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="#" class="menu-item active">
+          <i data-feather="book"></i>
+          <span>Materi</span>
+        </a>
+
+        <a href="#" class="menu-item">
+          <i data-feather="message-circle"></i>
+          <span>AI Chat</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button class="logout-btn" id="logoutBtn">
+          <i data-feather="log-out"></i>
+
+          <span> Keluar </span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- =====================================
+       MAIN
+  ====================================== -->
+
+    <main class="main">
+      <!-- TOPBAR -->
+
+      <header class="topbar">
+        <div class="breadcrumb">
+          <a href="dashboard.html"> Dashboard </a>
+
+          <i data-feather="chevron-right"></i>
+
+          <span id="breadcrumbClass"> SMP Kelas 7 </span>
+        </div>
+
+        <div class="profile-mini">
+          <div class="avatar">
+            <span id="avatarText">S</span>
+          </div>
+
+          <div class="profile-info">
+            <strong id="profileName"> Siswa </strong>
+
+            <small id="profileClass"> SMP • Kelas 7 </small>
+          </div>
+        </div>
+      </header>
+
+      <!-- =====================================
+         CONTENT
+    ====================================== -->
+
+      <section class="content">
+        <!-- PAGE HEADER -->
+
+        <div class="page-header">
+          <div>
+            <span class="section-label"> PEMBELAJARAN </span>
+
+            <h1 id="pageTitle">Materi SMP Kelas 7</h1>
+
+            <p>Pilih mata pelajaran untuk melihat materi pembelajaran.</p>
+          </div>
+
+          <div class="class-badge">
+            <i data-feather="layers"></i>
+
+            <span id="classBadge"> Kelas 7 </span>
+          </div>
+        </div>
+
+        <!-- =====================================
+           SEARCH
+      ====================================== -->
+
+        <div class="search-box">
+          <i data-feather="search"></i>
+
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Cari mata pelajaran atau materi..."
+          />
+
+          <button id="clearSearch" class="clear-search" hidden>
+            <i data-feather="x"></i>
+          </button>
+        </div>
+
+        <!-- =====================================
+           SUBJECT
+      ====================================== -->
+
+        <div class="section-header">
+          <div>
+            <span class="section-label"> MATA PELAJARAN </span>
+
+            <h2 id="subjectTitle">Pelajaran Kelas 7</h2>
+          </div>
+
+          <span class="result-info" id="resultInfo"> 9 mata pelajaran </span>
+        </div>
+
+        <div class="subject-grid" id="subjectGrid"></div>
+
+        <!-- EMPTY SEARCH -->
+
+        <div class="empty-state" id="emptyState" hidden>
+          <i data-feather="search"></i>
+
+          <h3>Materi tidak ditemukan</h3>
+
+          <p>Coba gunakan kata pencarian yang berbeda.</p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      /* =====================================
+       DATA SMP
+    ====================================== */
+
+      const materiSMP = {
+        7: [
+          {
+            name: "Matematika",
+            icon: "triangle",
+            color: "blue",
+            description:
+              "Bilangan, aljabar, persamaan, perbandingan, geometri, dan data.",
+            topics: [
+              "Bilangan Bulat dan Rasional",
+              "Aljabar Dasar",
+              "PLSV dan PtLSV",
+              "Perbandingan dan Rasio",
+              "Geometri dan Penyajian Data",
+            ],
+          },
+
+          {
+            name: "Bahasa Indonesia",
+            icon: "book-open",
+            color: "pink",
+            description:
+              "Teks deskripsi, fantasi, prosedur, laporan observasi, dan ulasan.",
+            topics: [
+              "Teks Deskripsi",
+              "Cerita Fantasi",
+              "Teks Prosedur",
+              "Laporan Hasil Observasi",
+              "Tanggapan Buku",
+            ],
+          },
+
+          {
+            name: "IPA",
+            icon: "activity",
+            color: "green",
+            description:
+              "Sains, pengukuran, zat, suhu, kalor, gaya, dan ekosistem.",
+            topics: [
+              "Hakikat Sains dan Pengukuran",
+              "Zat dan Perubahannya",
+              "Suhu, Kalor, dan Pemuaian",
+              "Gerak dan Gaya",
+              "Ekosistem dan Keanekaragaman Hayati",
+            ],
+          },
+
+          {
+            name: "IPS",
+            icon: "globe",
+            color: "orange",
+            description:
+              "Kehidupan sosial, lingkungan, budaya, ekonomi, dan masyarakat.",
+            topics: [
+              "Kehidupan Sosial",
+              "Interaksi Sosial dan Budaya",
+              "Potensi Ekonomi Lingkungan",
+              "Pemberdayaan Masyarakat",
+              "Sejarah Pra-Aksara dan Hindu-Buddha",
+            ],
+          },
+
+          {
+            name: "Sejarah",
+            icon: "clock",
+            color: "red",
+            description:
+              "Perjalanan sejarah Nusantara dari masa awal hingga berkembangnya Islam.",
+            topics: [
+              "Asal-Usul Keluarga",
+              "Masa Pra-Aksara",
+              "Hindu-Buddha",
+              "Kerajaan Nusantara",
+              "Islam di Indonesia",
+            ],
+          },
+
+          {
+            name: "Bahasa Inggris",
+            icon: "message-circle",
+            color: "purple",
+            description:
+              "Komunikasi dasar, makanan, rumah, sekolah, dan teks digital.",
+            topics: [
+              "About Me",
+              "Culinary",
+              "Home Sweet Home",
+              "School Activities",
+              "Digital Stories",
+            ],
+          },
+
+          {
+            name: "Pendidikan Pancasila",
+            icon: "flag",
+            color: "red",
+            description: "Pancasila, norma, keberagaman, dan keutuhan NKRI.",
+            topics: [
+              "Kelahiran Pancasila",
+              "Nilai-Nilai Pancasila",
+              "Norma Masyarakat",
+              "Keberagaman",
+              "Keutuhan NKRI",
+            ],
+          },
+
+          {
+            name: "Informatika",
+            icon: "code",
+            color: "blue",
+            description:
+              "Komputasi, TIK, sistem komputer, jaringan, pemrograman, dan etika digital.",
+            topics: [
+              "Berpikir Komputasional",
+              "TIK Dasar",
+              "Sistem Komputer dan Jaringan",
+              "Scratch dan Algoritma",
+              "Etika Digital",
+            ],
+          },
+
+          {
+            name: "PJOK",
+            icon: "activity",
+            color: "green",
+            description:
+              "Permainan, atletik, bela diri, senam, renang, dan kebugaran.",
+            topics: [
+              "Bola Besar",
+              "Bola Kecil dan Atletik",
+              "Pencak Silat dan Senam",
+              "Renang Gaya Dada",
+              "Kebugaran dan Kebersihan",
+            ],
+          },
+        ],
+
+        /* =================================
+         KELAS 8
+      ================================= */
+
+        8: [
+          {
+            name: "Matematika",
+            icon: "triangle",
+            color: "blue",
+            description:
+              "Aljabar lanjut, SPLDV, fungsi linear, Pythagoras, statistika, dan peluang.",
+            topics: [
+              "Aljabar dan SPLDV",
+              "Fungsi Linear",
+              "Teorema Pythagoras",
+              "Lingkaran dan Bangun Ruang",
+              "Statistika dan Peluang",
+            ],
+          },
+
+          {
+            name: "Bahasa Indonesia",
+            icon: "book-open",
+            color: "pink",
+            description: "Puisi, eksplanasi, iklan, resensi, dan teks diskusi.",
+            topics: [
+              "Menulis Puisi",
+              "Teks Eksplanasi",
+              "Iklan, Slogan, dan Poster",
+              "Teks Resensi",
+              "Teks Diskusi",
+            ],
+          },
+
+          {
+            name: "IPA",
+            icon: "activity",
+            color: "green",
+            description:
+              "Sel, sistem organ, usaha, tekanan, gelombang, cahaya, dan zat.",
+            topics: [
+              "Struktur Sel",
+              "Sistem Organ Manusia",
+              "Usaha dan Tekanan",
+              "Gelombang, Bunyi, dan Cahaya",
+              "Zat Kimia Harian",
+            ],
+          },
+
+          {
+            name: "IPS",
+            icon: "globe",
+            color: "orange",
+            description:
+              "Keragaman Indonesia, mobilitas sosial, kolonialisme, ekonomi, dan sejarah.",
+            topics: [
+              "Keragaman Alam Indonesia",
+              "Mobilitas Sosial",
+              "Kolonialisme",
+              "Perekonomian Nasional",
+              "Pergerakan Nasional",
+            ],
+          },
+
+          {
+            name: "Sejarah",
+            icon: "clock",
+            color: "red",
+            description:
+              "Kolonialisme, perlawanan daerah, tanam paksa, Sumpah Pemuda, dan Jepang.",
+            topics: [
+              "Bangsa Barat dan VOC",
+              "Perlawanan Daerah",
+              "Tanam Paksa",
+              "Sumpah Pemuda 1928",
+              "Pendudukan Jepang",
+            ],
+          },
+
+          {
+            name: "Bahasa Inggris",
+            icon: "message-circle",
+            color: "purple",
+            description:
+              "Recount, narrative, lingkungan, masa lalu dan sekarang, serta literasi digital.",
+            topics: [
+              "Recount Text",
+              "Narrative Text",
+              "Environment",
+              "Past and Present",
+              "Digital Literacy",
+            ],
+          },
+
+          {
+            name: "Pendidikan Pancasila",
+            icon: "flag",
+            color: "red",
+            description:
+              "Pancasila, UUD 1945, peraturan, Sumpah Pemuda, dan budaya.",
+            topics: [
+              "Pancasila dan UUD 1945",
+              "Peraturan Perundang-undangan",
+              "Sumpah Pemuda",
+              "Jati Diri Bangsa",
+              "Budaya Lokal",
+            ],
+          },
+
+          {
+            name: "Informatika",
+            icon: "code",
+            color: "blue",
+            description:
+              "Data, jaringan internet, pemrograman, komunikasi, dan proyek digital.",
+            topics: [
+              "Spreadsheet",
+              "Jaringan Internet",
+              "Keamanan Data",
+              "Pemrograman Teks",
+              "Proyek Digital",
+            ],
+          },
+
+          {
+            name: "PJOK",
+            icon: "activity",
+            color: "green",
+            description:
+              "Permainan lanjutan, atletik, bela diri, senam, akuatik, dan kebugaran.",
+            topics: [
+              "Bola Besar Lanjutan",
+              "Bola Kecil dan Atletik",
+              "Beladiri dan Senam",
+              "Aktivitas Akuatik",
+              "Kebugaran dan Kesehatan",
+            ],
+          },
+        ],
+
+        /* =================================
+         KELAS 9
+      ================================= */
+
+        9: [
+          {
+            name: "Matematika",
+            icon: "triangle",
+            color: "blue",
+            description:
+              "Fungsi kuadrat, transformasi, kesebangunan, bangun ruang, data, dan peluang.",
+            topics: [
+              "Persamaan dan Fungsi Kuadrat",
+              "Transformasi Geometri",
+              "Kesebangunan dan Kekongruenan",
+              "Bangun Ruang Sisi Lengkung",
+              "Diagram dan Peluang",
+            ],
+          },
+
+          {
+            name: "Bahasa Indonesia",
+            icon: "book-open",
+            color: "pink",
+            description:
+              "Laporan percobaan, pidato, kritik, esai, cerpen, dan literasi media.",
+            topics: [
+              "Laporan Percobaan",
+              "Pidato Persuasif",
+              "Kritik dan Esai",
+              "Cerpen",
+              "Cek Fakta dan Literasi Media",
+            ],
+          },
+
+          {
+            name: "IPA",
+            icon: "activity",
+            color: "green",
+            description:
+              "Genetika, reproduksi, listrik, magnet, bioteknologi, dan lingkungan.",
+            topics: [
+              "Pewarisan Sifat",
+              "Perkembangbiakan",
+              "Listrik Statis dan Dinamis",
+              "Kemagnetan",
+              "Bioteknologi dan Lingkungan",
+            ],
+          },
+
+          {
+            name: "IPS",
+            icon: "globe",
+            color: "orange",
+            description:
+              "Perubahan sosial, globalisasi, ekonomi kreatif, sejarah Indonesia, dan kerja sama internasional.",
+            topics: [
+              "Perubahan Sosial Budaya",
+              "Globalisasi",
+              "Ekonomi Kreatif",
+              "Indonesia hingga Reformasi",
+              "Kerja Sama Internasional",
+            ],
+          },
+
+          {
+            name: "Sejarah",
+            icon: "clock",
+            color: "red",
+            description:
+              "Proklamasi, perjuangan kemerdekaan, demokrasi, Orde Baru, Reformasi, dan politik luar negeri.",
+            topics: [
+              "Proklamasi 1945",
+              "Perjuangan Kemerdekaan",
+              "Demokrasi Liberal dan Terpimpin",
+              "Orde Baru dan Reformasi",
+              "Politik Luar Negeri Indonesia",
+            ],
+          },
+
+          {
+            name: "Bahasa Inggris",
+            icon: "message-circle",
+            color: "purple",
+            description:
+              "Ungkapan harapan, ucapan selamat, label, passive voice, legenda, dan public speaking.",
+            topics: [
+              "Hopes and Congratulations",
+              "Labels dan Manual",
+              "Passive Voice",
+              "Legends",
+              "Public Speaking",
+            ],
+          },
+
+          {
+            name: "Pendidikan Pancasila",
+            icon: "flag",
+            color: "red",
+            description:
+              "Pancasila, UUD 1945, demokrasi, keberagaman, kedaulatan, dan bela negara.",
+            topics: [
+              "Dinamika Pancasila",
+              "Pembukaan UUD 1945",
+              "Kedaulatan Negara",
+              "Harmoni Keberagaman",
+              "Bela Negara",
+            ],
+          },
+
+          {
+            name: "Informatika",
+            icon: "code",
+            color: "blue",
+            description:
+              "Algoritma, Python, AI, machine learning, robotika, dan keamanan siber.",
+            topics: [
+              "Graf dan Pohon",
+              "Python Dasar",
+              "Artificial Intelligence",
+              "Robotika dan Otomatisasi",
+              "Cyber Security",
+            ],
+          },
+
+          {
+            name: "PJOK",
+            icon: "activity",
+            color: "green",
+            description:
+              "Strategi permainan, senam, kesehatan reproduksi, P3K, dan latihan mandiri.",
+            topics: [
+              "Taktik Permainan",
+              "Atletik Lanjutan",
+              "Senam Kompleks",
+              "Kesehatan dan P3K",
+              "Program Latihan Mandiri",
+            ],
+          },
+        ],
+      };
+
+      /* =====================================
+       USER
+    ===================================== */
+
+      const currentUser = JSON.parse(
+        localStorage.getItem("elearning_current_user"),
+      );
+
+      const name = currentUser?.name || currentUser?.fullname || "Siswa";
+
+      const avatarText = document.getElementById("avatarText");
+
+      const profileName = document.getElementById("profileName");
+
+      if (avatarText) {
+        avatarText.textContent = name.charAt(0).toUpperCase();
+      }
+
+      if (profileName) {
+        profileName.textContent = name;
+      }
+
+      /* =====================================
+       PILIH KELAS
+    ===================================== */
+
+      const params = new URLSearchParams(window.location.search);
+
+      let selectedClass =
+        params.get("kelas") ||
+        localStorage.getItem("elearning_selected_class") ||
+        "7";
+
+      if (!materiSMP[selectedClass]) {
+        selectedClass = "7";
+      }
+
+      /* =====================================
+       ELEMENT
+    ===================================== */
+
+      const subjectGrid = document.getElementById("subjectGrid");
+
+      const searchInput = document.getElementById("searchInput");
+
+      const clearSearch = document.getElementById("clearSearch");
+
+      const emptyState = document.getElementById("emptyState");
+
+      const resultInfo = document.getElementById("resultInfo");
+
+      /* =====================================
+       UPDATE HEADER
+    ===================================== */
+
+      document.getElementById("pageTitle").textContent =
+        `Materi SMP Kelas ${selectedClass}`;
+
+      document.getElementById("breadcrumbClass").textContent =
+        `SMP Kelas ${selectedClass}`;
+
+      document.getElementById("classBadge").textContent =
+        `Kelas ${selectedClass}`;
+
+      document.getElementById("profileClass").textContent =
+        `SMP • Kelas ${selectedClass}`;
+
+      document.getElementById("subjectTitle").textContent =
+        `Pelajaran Kelas ${selectedClass}`;
+
+      /* =====================================
+       RENDER
+    ===================================== */
+
+      function renderSubjects(keyword = "") {
+        subjectGrid.innerHTML = "";
+
+        const query = keyword.toLowerCase().trim();
+
+        const data = materiSMP[selectedClass];
+
+        const filtered = data.filter((subject) => {
+          const text = [subject.name, subject.description, ...subject.topics]
+            .join(" ")
+            .toLowerCase();
+
+          return text.includes(query);
+        });
+
+        resultInfo.textContent = `${filtered.length} mata pelajaran`;
+
+        if (filtered.length === 0) {
+          emptyState.hidden = false;
+
+          return;
+        }
+
+        emptyState.hidden = true;
+
+        filtered.forEach((subject, index) => {
+          const card = document.createElement("article");
+
+          card.className = "subject-card";
+
+          card.innerHTML = `
+
+            <div class="subject-top">
+
+              <div class="subject-icon ${subject.color}">
+                <i data-feather="${subject.icon}"></i>
+              </div>
+
+              <span class="subject-number">
+                ${String(index + 1).padStart(2, "0")}
+              </span>
+
+            </div>
+
+
+            <h3>
+              ${subject.name}
+            </h3>
+
+
+            <p>
+              ${subject.description}
+            </p>
+
+
+            <div class="topic-list">
+
+              ${subject.topics
+                .map(
+                  (topic) => `
+                    <span>
+                      ${topic}
+                    </span>
+                  `,
+                )
+                .join("")}
+
+            </div>
+
+
+            <div class="subject-bottom">
+
+              <span>
+                ${subject.topics.length} materi
+              </span>
+
+              <button
+                class="open-subject"
+                data-subject="${subject.name}"
+              >
+                Buka
+                <i data-feather="arrow-right"></i>
+              </button>
+
+            </div>
+
+          `;
+
+          subjectGrid.appendChild(card);
+        });
+
+        feather.replace();
+
+        /* =================================
+         BUTTON
+      ================================= */
+
+        document.querySelectorAll(".open-subject").forEach((button) => {
+          button.addEventListener("click", function () {
+            const subject = this.dataset.subject;
+
+            localStorage.setItem("elearning_current_subject", subject);
+
+            localStorage.setItem("elearning_selected_level", "SMP");
+
+            localStorage.setItem("elearning_selected_class", selectedClass);
+
+            /*
+                 Nanti bisa diarahkan
+                 ke halaman masing-masing
+                 mata pelajaran.
+
+                 Contoh:
+                 matematika-smp-7.html
+              */
+
+            const routeMap = {
+              Matematika: "matematika-smp-" + selectedClass + ".html",
+
+              "Bahasa Indonesia": "b-indo-smp-" + selectedClass + ".html",
+
+              IPA: "ipa-smp-" + selectedClass + ".html",
+
+              IPS: "ips-smp-" + selectedClass + ".html",
+
+              Sejarah: "sejarah-smp-" + selectedClass + ".html",
+
+              "Bahasa Inggris": "b.ing-smp-" + selectedClass + ".html",
+
+              "Pendidikan Pancasila":
+                "pendidikan-pancasila-smp-" + selectedClass + ".html",
+
+              Informatika: "informatika-smp-" + selectedClass + ".html",
+
+              PJOK: "pjok-smp-" + selectedClass + ".html",
+            };
+
+            const target = routeMap[subject];
+
+            if (target) {
+              window.location.href = target;
+            } else {
+              window.location.href = "materi.html";
+            }
+          });
+        });
+      }
+
+      /* =====================================
+       SEARCH
+    ===================================== */
+
+      searchInput.addEventListener("input", function () {
+        renderSubjects(this.value);
+
+        clearSearch.hidden = !this.value;
+      });
+
+      clearSearch.addEventListener("click", function () {
+        searchInput.value = "";
+
+        renderSubjects();
+
+        this.hidden = true;
+
+        searchInput.focus();
+      });
+
+      /* =====================================
+       LOGOUT
+    ===================================== */
+
+      const logoutBtn = document.getElementById("logoutBtn");
+
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", function () {
+          localStorage.removeItem("elearning_current_user");
+
+          localStorage.removeItem("elearning_login");
+
+          localStorage.removeItem("elearning_guest");
+
+          window.location.href = "login.html";
+        });
+      }
+
+      /* =====================================
+       START
+    ===================================== */
+
+      renderSubjects();
+
+      feather.replace();
+    </script>
+  </body>
+</html>

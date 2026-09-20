@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Profile | Learn-Space</title>
+
+    <link rel="stylesheet" href="profile.css" />
+
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+
+  <body>
+    <div class="profile-page">
+      <!-- =================================
+         SIDEBAR
+    ================================== -->
+
+      <aside class="profile-sidebar">
+        <a href="dashboard.html" class="brand">
+          <div class="brand-icon">
+            <i data-feather="book-open"></i>
+          </div>
+
+          <div>
+            <strong>Learn-Space</strong>
+            <small>Learning Platform</small>
+          </div>
+        </a>
+
+        <div class="sidebar-profile">
+          <div class="sidebar-avatar" id="sidebarAvatar">
+            <span id="sidebarAvatarText"> S </span>
+
+            <img id="sidebarAvatarImage" alt="Foto profil" hidden />
+          </div>
+
+          <strong id="sidebarName"> Siswa </strong>
+
+          <small id="sidebarClass"> SMK • Kelas 10 </small>
+        </div>
+
+        <nav class="sidebar-menu">
+          <a href="dashboard.html" class="sidebar-item">
+            <i data-feather="grid"></i>
+            <span>Dashboard</span>
+          </a>
+
+          <a href="profile.html" class="sidebar-item active">
+            <i data-feather="user"></i>
+            <span>Profile</span>
+          </a>
+
+          <a href="#" class="sidebar-item">
+            <i data-feather="book"></i>
+            <span>My Courses</span>
+          </a>
+
+          <a href="#" class="sidebar-item">
+            <i data-feather="clipboard"></i>
+            <span>Tugas</span>
+          </a>
+
+          <a href="#" class="sidebar-item">
+            <i data-feather="trending-up"></i>
+            <span>Progress</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <a href="dashboard.html" class="back-dashboard">
+            <i data-feather="arrow-left"></i>
+            <span>Kembali ke Dashboard</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- =================================
+         MAIN
+    ================================== -->
+
+      <main class="profile-main">
+        <header class="profile-header">
+          <div>
+            <span class="header-label"> PERSONAL </span>
+
+            <h1>Profile</h1>
+
+            <p>Atur informasi pribadi dan biodata akunmu.</p>
+          </div>
+
+          <a href="dashboard.html" class="header-back">
+            <i data-feather="arrow-left"></i>
+
+            Dashboard
+          </a>
+        </header>
+
+        <!-- =================================
+           PROFILE HERO
+      ================================== -->
+
+        <section class="profile-hero">
+          <div class="profile-avatar-wrapper">
+            <div class="profile-avatar" id="profileAvatar">
+              <span id="profileAvatarText"> S </span>
+
+              <img id="profileAvatarImage" alt="Foto profil" hidden />
+            </div>
+
+            <label for="photoInput" class="photo-edit">
+              <i data-feather="camera"></i>
+            </label>
+
+            <input type="file" id="photoInput" accept="image/*" hidden />
+          </div>
+
+          <div class="profile-hero-info">
+            <span class="profile-role"> STUDENT PROFILE </span>
+
+            <h2 id="profileHeroName">Siswa</h2>
+
+            <p id="profileHeroClass">SMK • Kelas 10</p>
+
+            <span class="profile-note">
+              Klik ikon kamera untuk mengganti foto profil.
+            </span>
+          </div>
+        </section>
+
+            
+        <!-- =================================
+           FORM
+      ================================== -->
+
+        <section class="form-card">
+          <div class="section-title">
+            <div>
+              <span> BIODATA </span>
+
+              <h2>Informasi Pribadi</h2>
+            </div>
+          </div>
+
+          <form id="profileForm">
+            <!-- NAMA -->
+
+            <div class="form-group full">
+              <label for="fullName"> Nama Lengkap </label>
+
+              <div class="input-wrapper">
+                <i data-feather="user"></i>
+
+                <input
+                  type="text"
+                  id="fullName"
+                  placeholder="Masukkan nama lengkap"
+                  autocomplete="name"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <!-- EMAIL -->
+
+              <div class="form-group">
+                <label for="email"> Email </label>
+
+                <div class="input-wrapper">
+                  <i data-feather="mail"></i>
+
+                  <input type="email" id="email" placeholder="nama@email.com" />
+                </div>
+              </div>
+
+              <!-- PHONE -->
+
+              <div class="form-group">
+                <label for="phone"> Nomor HP </label>
+
+                <div class="input-wrapper">
+                  <i data-feather="phone"></i>
+
+                  <input type="tel" id="phone" placeholder="08xxxxxxxxxx" />
+                </div>
+              </div>
+
+              <!-- GENDER -->
+
+              <div class="form-group">
+                <label for="gender"> Jenis Kelamin </label>
+
+                <div class="input-wrapper">
+                  <i data-feather="users"></i>
+
+                  <select id="gender">
+                    <option value="">Pilih</option>
+
+                    <option value="Laki-laki">Laki-laki</option>
+
+                    <option value="Perempuan">Perempuan</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- BIRTH -->
+
+              <div class="form-group">
+                <label for="birthDate"> Tanggal Lahir </label>
+
+                <div class="input-wrapper">
+                  <i data-feather="calendar"></i>
+
+                  <input type="date" id="birthDate" />
+                </div>
+              </div>
+
+              <!-- SCHOOL -->
+
+              <div class="form-group">
+                <label for="school"> Sekolah </label>
+
+                <div class="input-wrapper">
+                  <i data-feather="home"></i>
+
+                  <input type="text" id="school" placeholder="Nama sekolah" />
+                </div>
+              </div>
+
+              <!-- CLASS -->
+
+              <div class="form-group">
+                <label for="className"> Kelas </label>
+
+                <div class="input-wrapper">
+                  <i data-feather="book-open"></i>
+
+                  <select id="className">
+                    <option value="">Pilih kelas</option>
+
+                    <option value="10">Kelas 10</option>
+
+                    <option value="11">Kelas 11</option>
+
+                    <option value="12">Kelas 12</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- LEVEL -->
+
+            <div class="form-group">
+              <label> Jenjang Pendidikan </label>
+              <div class="education-tags">
+                <button type="button" class="level-tag" data-level="SMK">
+                  SMK
+                </button>
+
+                <button type="button" class="level-tag" data-level="SMA">
+                  SMA
+                </button>
+
+                <button type="button" class="level-tag" data-level="SMP">
+                  SMP
+                </button>
+
+                <button type="button" class="level-tag" data-level="SD">
+                  SD
+                </button>
+              </div>
+            </div>
+
+            <!-- ADDRESS -->
+
+            <div class="form-group full">
+              <label for="address"> Alamat </label>
+
+              <div class="input-wrapper textarea-wrapper">
+                <i data-feather="map-pin"></i>
+
+                <textarea
+                  id="address"
+                  rows="4"
+                  placeholder="Masukkan alamat"
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- BIO -->
+
+            <div class="form-group full">
+              <label for="bio"> Tentang Saya </label>
+
+              <div class="input-wrapper textarea-wrapper">
+                <i data-feather="edit-3"></i>
+
+                <textarea
+                  id="bio"
+                  rows="5"
+                  placeholder="Ceritakan sedikit tentang dirimu..."
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- ACTION -->
+
+            <div class="form-actions">
+              <button type="button" id="resetBtn" class="reset-button">
+                Reset
+              </button>
+
+              <button type="submit" class="save-button">
+                <i data-feather="save"></i>
+
+                Simpan Perubahan
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <div id="saveMessage" class="save-message">
+          Profil berhasil disimpan.
+        </div>
+      </main>
+    </div>
+
+    <script src="profile.js"></script>
+  </body>
+</html>
