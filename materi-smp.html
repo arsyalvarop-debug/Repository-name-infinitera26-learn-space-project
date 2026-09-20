@@ -155,6 +155,98 @@
     </main>
 
     <script>
+      /* =========================================
+   DARK / LIGHT MODE
+========================================= */
+
+      (function () {
+        const THEME_KEY = "learnspace_theme";
+
+        const themeToggle = document.getElementById("themeToggle");
+
+        /* =====================================
+     GET SAVED THEME
+  ===================================== */
+
+        let savedTheme = localStorage.getItem(THEME_KEY);
+
+        if (savedTheme !== "dark" && savedTheme !== "light") {
+          savedTheme = "light";
+        }
+
+        /* =====================================
+     APPLY THEME
+  ===================================== */
+
+        function applyTheme(theme) {
+          const dark = theme === "dark";
+
+          document.body.classList.toggle("dark-mode", dark);
+
+          document.documentElement.setAttribute(
+            "data-theme",
+            dark ? "dark" : "light",
+          );
+
+          localStorage.setItem(THEME_KEY, dark ? "dark" : "light");
+
+          updateThemeButton(dark ? "dark" : "light");
+        }
+
+        /* =====================================
+     ICON TOMBOL
+  ===================================== */
+
+        function updateThemeButton(theme) {
+          if (!themeToggle) {
+            return;
+          }
+
+          if (theme === "dark") {
+            themeToggle.innerHTML = `
+        <i data-feather="sun"></i>
+      `;
+
+            themeToggle.setAttribute("title", "Mode terang");
+
+            themeToggle.setAttribute("aria-label", "Aktifkan mode terang");
+          } else {
+            themeToggle.innerHTML = `
+        <i data-feather="moon"></i>
+      `;
+
+            themeToggle.setAttribute("title", "Mode gelap");
+
+            themeToggle.setAttribute("aria-label", "Aktifkan mode gelap");
+          }
+
+          if (window.feather && typeof feather.replace === "function") {
+            feather.replace();
+          }
+        }
+
+        /* =====================================
+     BUTTON CLICK
+  ===================================== */
+
+        if (themeToggle) {
+          themeToggle.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const isDark = document.body.classList.contains("dark-mode");
+
+            applyTheme(isDark ? "light" : "dark");
+          });
+        }
+
+        /* =====================================
+     APPLY SAAT DASHBOARD DIBUKA
+  ===================================== */
+
+        applyTheme(savedTheme);
+      })();
+
       /* =====================================
        DATA SMP
     ====================================== */
