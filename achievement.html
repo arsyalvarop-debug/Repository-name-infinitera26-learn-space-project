@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Learn-Space | Pencapaian</title>
+
+    <link rel="stylesheet" href="achievement.css" />
+
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+
+  <body>
+    <div class="achievement-page">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <a href="dashboard.html" class="logo">
+          <div class="logo-icon">
+            <i data-feather="book-open"></i>
+          </div>
+
+          <div>
+            <h2>Learn-Space</h2>
+            <span>Platform Pembelajaran</span>
+          </div>
+        </a>
+
+        <nav class="menu">
+          <p class="menu-title">NAVIGASI</p>
+
+          <a href="dashboard.html" class="menu-item">
+            <i data-feather="grid"></i>
+            <span>Dashboard</span>
+          </a>
+
+          <a href="#" class="menu-item">
+            <i data-feather="book"></i>
+            <span>Kursus Saya</span>
+          </a>
+
+          <a href="#" class="menu-item">
+            <i data-feather="clipboard"></i>
+            <span>Tugas</span>
+          </a>
+
+          <a href="#" class="menu-item">
+            <i data-feather="trending-up"></i>
+            <span>Progres</span>
+          </a>
+
+          <p class="menu-title">PRIBADI</p>
+
+          <a href="quizizz.html" class="menu-item">
+            <i data-feather="check-square"></i>
+            <span>Quizizz</span>
+          </a>
+
+          <a href="achievement.html" class="menu-item active">
+            <i data-feather="award"></i>
+            <span>Pencapaian</span>
+          </a>
+
+          <a href="#" class="menu-item">
+            <i data-feather="calendar"></i>
+            <span>Kalender</span>
+          </a>
+
+          <a href="profile.html" class="menu-item">
+            <i data-feather="user"></i>
+            <span>Profil</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <a href="#" class="menu-item">
+            <i data-feather="help-circle"></i>
+            <span>Pusat Bantuan</span>
+          </a>
+
+          <button id="logoutBtn" class="logout-btn" type="button">
+            <i data-feather="log-out"></i>
+            <span>Keluar</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <span class="top-label"> PERKEMBANGAN </span>
+
+            <h1>Pencapaian Saya</h1>
+
+            <p>
+              Lihat pencapaian yang sudah kamu dapatkan selama belajar di
+              Learn-Space.
+            </p>
+          </div>
+
+          <a href="dashboard.html" class="back-button">
+            <i data-feather="arrow-left"></i>
+            <span>Kembali</span>
+          </a>
+        </header>
+
+        <section class="content">
+          <!-- HERO -->
+          <div class="achievement-summary">
+            <div class="summary-text">
+              <span class="summary-label"> PENCAPAIAN BELAJAR </span>
+
+              <h2>Terus belajar, terus berkembang.</h2>
+
+              <p>
+                Setiap materi yang kamu selesaikan membawa kamu lebih dekat ke
+                pencapaian berikutnya.
+              </p>
+            </div>
+
+            <div class="achievement-stat">
+              <strong id="achievementCount"> 0 </strong>
+
+              <span> Pencapaian terbuka </span>
+            </div>
+          </div>
+
+          <!-- PROGRESS -->
+          <section class="progress-card">
+            <div class="progress-header">
+              <div>
+                <span class="section-label"> RINGKASAN </span>
+
+                <h2>Perjalanan Belajarmu</h2>
+              </div>
+
+              <strong id="progressPercent"> 0% </strong>
+            </div>
+
+            <div class="progress-track">
+              <div
+                id="overallProgress"
+                class="progress-fill"
+                style="width: 0%"
+              ></div>
+            </div>
+
+            <p id="progressText">
+              Mulai belajar untuk mendapatkan pencapaian pertama.
+            </p>
+          </section>
+
+          <!-- ACHIEVEMENTS -->
+          <section class="achievement-section">
+            <div class="section-heading">
+              <div>
+                <span class="section-label"> KOLEKSI </span>
+
+                <h2>Daftar Pencapaian</h2>
+              </div>
+
+              <span id="achievementInfo"> 0 dari 8 terbuka </span>
+            </div>
+
+            <div class="achievement-grid" id="achievementGrid"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="achievement.js"></script>
+  </body>
+</html>

@@ -3024,3 +3024,315 @@ updateOverview();
 searchMaterials();
 
 refreshIcons();
+
+/* =========================================
+   PUSAT BANTUAN
+========================================= */
+
+const helpCenterBtn = document.getElementById("helpCenterBtn");
+
+const helpModal = document.getElementById("helpModal");
+
+const helpOverlay = document.getElementById("helpOverlay");
+
+const helpClose = document.getElementById("helpClose");
+
+const helpBack = document.getElementById("helpBack");
+
+function openHelpModal() {
+  if (!helpModal) {
+    return;
+  }
+
+  helpModal.classList.add("show");
+
+  document.body.style.overflow = "hidden";
+
+  refreshIcons();
+}
+
+function closeHelpModal() {
+  if (!helpModal) {
+    return;
+  }
+
+  helpModal.classList.remove("show");
+
+  document.body.style.overflow = "";
+}
+
+if (helpCenterBtn) {
+  helpCenterBtn.addEventListener("click", openHelpModal);
+}
+
+if (helpOverlay) {
+  helpOverlay.addEventListener("click", closeHelpModal);
+}
+
+if (helpClose) {
+  helpClose.addEventListener("click", closeHelpModal);
+}
+
+if (helpBack) {
+  helpBack.addEventListener("click", closeHelpModal);
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeHelpModal();
+  }
+});
+
+/* =========================================
+   SIDEBAR NAVIGATION
+========================================= */
+
+const mataPelajaranMenu = document.getElementById("mataPelajaranMenu");
+
+const materiTerbaruMenu = document.getElementById("materiTerbaruMenu");
+
+const mataPelajaranSection = document.getElementById("mataPelajaranSection");
+
+const materiTerbaruSection = document.getElementById("materiTerbaruSection");
+
+function smoothScrollTo(element) {
+  if (!element) {
+    return;
+  }
+
+  element.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+}
+
+if (mataPelajaranMenu) {
+  mataPelajaranMenu.addEventListener("click", () => {
+    smoothScrollTo(mataPelajaranSection);
+  });
+}
+
+if (materiTerbaruMenu) {
+  materiTerbaruMenu.addEventListener("click", () => {
+    smoothScrollTo(materiTerbaruSection);
+  });
+}
+
+/* =========================================
+   MODAL HELPER
+========================================= */
+
+function openDashboardModal(id) {
+  const modal = document.getElementById(id);
+
+  if (!modal) {
+    return;
+  }
+
+  modal.classList.add("show");
+
+  document.body.style.overflow = "hidden";
+
+  refreshIcons();
+}
+
+function closeDashboardModal(id) {
+  const modal = document.getElementById(id);
+
+  if (!modal) {
+    return;
+  }
+
+  modal.classList.remove("show");
+
+  document.body.style.overflow = "";
+}
+
+/* =========================================
+   PROGRESS MODAL
+========================================= */
+
+const progressMenu = document.getElementById("progressMenu");
+
+const progressChartList = document.getElementById("progressChartList");
+
+const progressOverallValue = document.getElementById("progressOverallValue");
+
+const progressOverallBar = document.getElementById("progressOverallBar");
+
+function renderProgressDiagram() {
+  if (!progressChartList || !levelData?.subjects) {
+    return;
+  }
+
+  const progress = getProgress();
+
+  progressChartList.innerHTML = "";
+
+  let total = 0;
+
+  levelData.subjects.forEach((subject) => {
+    const value = Math.max(
+      0,
+      Math.min(100, Number(progress[subject.name]) || 0),
+    );
+
+    total += value;
+
+    const item = document.createElement("div");
+
+    item.className = "progress-chart-item";
+
+    item.innerHTML = `
+        <div class="progress-chart-head">
+
+          <span class="progress-chart-name">
+            ${escapeHTML(subject.name)}
+          </span>
+
+          <span class="progress-chart-value">
+            ${value}%
+          </span>
+
+        </div>
+
+        <div class="progress-chart-track">
+
+          <div
+            class="progress-chart-fill"
+            style="width: ${value}%"
+          ></div>
+
+        </div>
+      `;
+
+    progressChartList.appendChild(item);
+  });
+
+  const overall = levelData.subjects.length
+    ? Math.round(total / levelData.subjects.length)
+    : 0;
+
+  if (progressOverallValue) {
+    progressOverallValue.textContent = `${overall}%`;
+  }
+
+  if (progressOverallBar) {
+    progressOverallBar.style.width = `${overall}%`;
+  }
+
+  refreshIcons();
+}
+
+if (progressMenu) {
+  progressMenu.addEventListener("click", () => {
+    renderProgressDiagram();
+
+    openDashboardModal("progressModal");
+  });
+}
+
+/* =========================================
+   LIVE UPDATE PROGRESS
+========================================= */
+
+let progressLiveTimer = null;
+
+function startProgressLiveUpdate() {
+  if (progressLiveTimer) {
+    clearInterval(progressLiveTimer);
+  }
+
+  progressLiveTimer = setInterval(() => {
+    const modal = document.getElementById("progressModal");
+
+    if (modal && modal.classList.contains("show")) {
+      renderProgressDiagram();
+    }
+  }, 1000);
+}
+
+startProgressLiveUpdate();
+
+window.addEventListener("storage", (event) => {
+  if (event.key && event.key.startsWith("elearning_progress_")) {
+    renderProgressDiagram();
+  }
+});
+
+/* =========================================
+   CALENDAR MODAL
+========================================= */
+
+const calendarMenu = document.getElementById("calendarMenu");
+
+const calendarClassText = document.getElementById("calendarClassText");
+
+const calendarSubjectList = document.getElementById("calendarSubjectList");
+
+function renderCalendarSubjects() {
+  if (!calendarSubjectList || !levelData?.subjects) {
+    return;
+  }
+
+  calendarSubjectList.innerHTML = "";
+
+  if (calendarClassText) {
+    calendarClassText.textContent = `${selectedLevel} • Kelas ${selectedClass}`;
+  }
+
+  levelData.subjects.forEach((subject, index) => {
+    const item = document.createElement("article");
+
+    item.className = "calendar-subject";
+
+    item.innerHTML = `
+        <div class="calendar-subject-top">
+
+          <span class="calendar-subject-number">
+            ${String(index + 1).padStart(2, "0")}
+          </span>
+
+          <h3>
+            ${escapeHTML(subject.name)}
+          </h3>
+
+        </div>
+
+        <p>
+          ${escapeHTML(subject.description || "Materi pembelajaran tersedia.")}
+        </p>
+      `;
+
+    calendarSubjectList.appendChild(item);
+  });
+}
+
+if (calendarMenu) {
+  calendarMenu.addEventListener("click", () => {
+    renderCalendarSubjects();
+
+    openDashboardModal("calendarModal");
+  });
+}
+
+/* =========================================
+   CLOSE MODALS
+========================================= */
+
+document.querySelectorAll("[data-close-modal]").forEach((element) => {
+  element.addEventListener("click", () => {
+    closeDashboardModal(element.dataset.closeModal);
+  });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") {
+    return;
+  }
+
+  closeDashboardModal("progressModal");
+
+  closeDashboardModal("calendarModal");
+});
+

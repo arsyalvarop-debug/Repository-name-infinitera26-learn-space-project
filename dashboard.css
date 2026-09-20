@@ -2899,3 +2899,874 @@ body.dark-mode .theme-toggle:hover {
   border-color: #526987;
 }
 
+/* =========================================
+   PUSAT BANTUAN
+========================================= */
+
+.help-center-btn {
+  width: 100%;
+  border: 0;
+  font-family: inherit;
+  text-align: left;
+}
+
+.help-modal {
+  position: fixed;
+  inset: 0;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  z-index: 9999;
+}
+
+.help-modal.show {
+  display: flex;
+}
+
+.help-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(10, 18, 35, 0.58);
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.help-card {
+  position: relative;
+
+  width: min(100%, 470px);
+
+  padding: 34px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f1;
+  border-radius: 22px;
+
+  box-shadow: 0 30px 80px rgba(15, 30, 60, 0.18);
+
+  text-align: center;
+
+  z-index: 2;
+
+  animation: helpCardIn 0.25s ease;
+}
+
+@keyframes helpCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.help-close {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  color: #8290a6;
+
+  background: #f3f6fa;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.help-close:hover {
+  color: #25385f;
+  background: #e9eef5;
+}
+
+.help-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+.help-icon {
+  width: 64px;
+  height: 64px;
+
+  margin: 0 auto 18px;
+
+  display: grid;
+  place-items: center;
+
+  color: #4f7cff;
+
+  background: linear-gradient(145deg, #edf3ff, #e6eeff);
+
+  border: 1px solid #dce7ff;
+
+  border-radius: 18px;
+}
+
+.help-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.help-label {
+  color: #6680c8;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+}
+
+.help-card h2 {
+  margin-top: 9px;
+
+  color: #182642;
+
+  font-size: 23px;
+
+  line-height: 1.3;
+
+  letter-spacing: -0.03em;
+}
+
+.help-card > p {
+  margin-top: 10px;
+
+  color: #8997aa;
+
+  font-size: 10px;
+
+  line-height: 1.8;
+}
+
+.help-info {
+  margin-top: 20px;
+
+  padding: 13px 15px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  text-align: left;
+
+  background: #f7f9fc;
+
+  border: 1px solid #e6ebf2;
+
+  border-radius: 13px;
+}
+
+.help-info > svg {
+  width: 18px;
+  height: 18px;
+
+  color: #4f7cff;
+
+  flex-shrink: 0;
+}
+
+.help-info strong {
+  display: block;
+
+  color: #283a5d;
+
+  font-size: 10px;
+}
+
+.help-info span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #8e9bad;
+
+  font-size: 8px;
+
+  line-height: 1.5;
+}
+
+.help-back {
+  width: 100%;
+
+  margin-top: 18px;
+
+  padding: 12px 16px;
+
+  color: #ffffff;
+
+  background: linear-gradient(135deg, #5d89ff, #4472ed);
+
+  border: 0;
+  border-radius: 11px;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 20px rgba(79, 124, 255, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.help-back:hover {
+  transform: translateY(-1px);
+
+  box-shadow: 0 14px 25px rgba(79, 124, 255, 0.28);
+}
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+body.dark-mode .help-card {
+  background: #17233a;
+
+  border-color: #30405d;
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.38);
+}
+
+body.dark-mode .help-close {
+  color: #a3b0c5;
+
+  background: #202d46;
+}
+
+body.dark-mode .help-close:hover {
+  color: #ffffff;
+
+  background: #293850;
+}
+
+body.dark-mode .help-icon {
+  background: #1e3154;
+
+  border-color: #30486f;
+
+  color: #86a7ff;
+}
+
+body.dark-mode .help-card h2 {
+  color: #f2f6ff;
+}
+
+body.dark-mode .help-card > p {
+  color: #9ba9bd;
+}
+
+body.dark-mode .help-info {
+  background: #1d2a42;
+
+  border-color: #30405b;
+}
+
+body.dark-mode .help-info strong {
+  color: #e9eff9;
+}
+
+body.dark-mode .help-info span {
+  color: #93a2b7;
+}
+
+/* =========================================
+   SIDEBAR BUTTON
+========================================= */
+
+.sidebar-button {
+  width: 100%;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  font-family: inherit;
+  text-align: left;
+}
+
+/* =========================================
+   DASHBOARD MODAL
+========================================= */
+
+.dashboard-modal {
+  position: fixed;
+  inset: 0;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  z-index: 9999;
+}
+
+.dashboard-modal.show {
+  display: flex;
+}
+
+.dashboard-modal-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(10, 18, 35, 0.58);
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.dashboard-modal-card {
+  position: relative;
+
+  width: min(100%, 620px);
+  max-height: 85vh;
+
+  padding: 30px;
+
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f1;
+  border-radius: 22px;
+
+  box-shadow: 0 30px 80px rgba(15, 30, 60, 0.18);
+
+  z-index: 2;
+
+  animation: dashboardModalIn 0.25s ease;
+}
+
+@keyframes dashboardModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.dashboard-modal-close {
+  position: absolute;
+
+  top: 14px;
+  right: 14px;
+
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  color: #8290a6;
+  background: #f3f6fa;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.dashboard-modal-close:hover {
+  color: #26385a;
+
+  background: #e8edf5;
+}
+
+.dashboard-modal-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* =========================================
+   MODAL HEADER
+========================================= */
+
+.modal-icon {
+  width: 56px;
+  height: 56px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 15px;
+}
+
+.modal-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.progress-modal-icon {
+  color: #4f7cff;
+
+  background: #edf3ff;
+}
+
+.calendar-modal-icon {
+  color: #7a62da;
+
+  background: #f1edff;
+}
+
+.modal-label {
+  display: block;
+
+  margin-top: 18px;
+
+  color: #6580ca;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+}
+
+.dashboard-modal-card h2 {
+  margin-top: 7px;
+
+  color: #182642;
+
+  font-size: 23px;
+
+  letter-spacing: -0.035em;
+}
+
+.modal-description {
+  max-width: 540px;
+
+  margin-top: 7px;
+
+  color: #8997aa;
+
+  font-size: 10px;
+
+  line-height: 1.7;
+}
+
+/* =========================================
+   OVERALL PROGRESS
+========================================= */
+
+.progress-summary-box {
+  margin-top: 20px;
+
+  padding: 17px;
+
+  background: #f7f9fc;
+
+  border: 1px solid #e4e9f1;
+
+  border-radius: 14px;
+}
+
+.progress-summary-box > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progress-summary-box span {
+  color: #7f8da4;
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.progress-summary-box strong {
+  color: #4f7cff;
+
+  font-size: 16px;
+}
+
+.overall-progress-track {
+  height: 8px;
+
+  margin-top: 12px;
+
+  overflow: hidden;
+
+  background: #e8edf4;
+
+  border-radius: 999px;
+}
+
+.overall-progress-fill {
+  height: 100%;
+
+  background: linear-gradient(90deg, #5d89ff, #4572ed);
+
+  border-radius: inherit;
+
+  transition: width 0.35s ease;
+}
+
+/* =========================================
+   LIVE BADGE
+========================================= */
+
+.live-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: 12px;
+
+  padding: 6px 9px;
+
+  color: #55709f;
+
+  background: #f2f6ff;
+
+  border-radius: 999px;
+
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #4f7cff;
+
+  box-shadow: 0 0 0 4px rgba(79, 124, 255, 0.1);
+
+  animation: livePulse 1.5s infinite;
+}
+
+@keyframes livePulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+/* =========================================
+   PROGRESS CHART
+========================================= */
+
+.progress-chart-list {
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 11px;
+}
+
+.progress-chart-item {
+  padding: 13px 14px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5eaf1;
+
+  border-radius: 13px;
+}
+
+.progress-chart-head {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+}
+
+.progress-chart-name {
+  color: #243554;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.progress-chart-value {
+  flex-shrink: 0;
+
+  color: #4f7cff;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.progress-chart-track {
+  height: 7px;
+
+  margin-top: 9px;
+
+  overflow: hidden;
+
+  background: #edf1f6;
+
+  border-radius: 999px;
+}
+
+.progress-chart-fill {
+  height: 100%;
+
+  background: linear-gradient(90deg, #78a0ff, #4f7cff);
+
+  border-radius: inherit;
+
+  transition: width 0.35s ease;
+}
+
+/* =========================================
+   CALENDAR
+========================================= */
+
+.calendar-current-class {
+  margin-top: 18px;
+
+  padding: 13px 14px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  background: #f7f9fc;
+
+  border: 1px solid #e5eaf1;
+
+  border-radius: 13px;
+}
+
+.calendar-current-class > svg {
+  width: 18px;
+  height: 18px;
+
+  color: #7a62da;
+}
+
+.calendar-current-class span {
+  display: block;
+
+  color: #8a97aa;
+
+  font-size: 8px;
+}
+
+.calendar-current-class strong {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #263754;
+
+  font-size: 10px;
+}
+
+.calendar-subject-list {
+  margin-top: 16px;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+.calendar-subject {
+  padding: 13px;
+
+  background: #ffffff;
+
+  border: 1px solid #e4e9f0;
+
+  border-radius: 13px;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.calendar-subject:hover {
+  transform: translateY(-1px);
+
+  border-color: #d8e1f1;
+
+  box-shadow: 0 8px 20px rgba(30, 45, 75, 0.06);
+}
+
+.calendar-subject-top {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+}
+
+.calendar-subject-number {
+  width: 27px;
+  height: 27px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #5e79ba;
+
+  background: #edf3ff;
+
+  border-radius: 8px;
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.calendar-subject h3 {
+  color: #263754;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.calendar-subject p {
+  margin-top: 8px;
+
+  color: #8b98aa;
+
+  font-size: 8px;
+
+  line-height: 1.6;
+}
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+body.dark-mode .dashboard-modal-card {
+  background: #17233a;
+
+  border-color: #30405d;
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.38);
+}
+
+body.dark-mode .dashboard-modal-close {
+  color: #a3b0c5;
+
+  background: #202d46;
+}
+
+body.dark-mode .dashboard-modal-close:hover {
+  color: #ffffff;
+
+  background: #293850;
+}
+
+body.dark-mode .dashboard-modal-card h2 {
+  color: #f2f6ff;
+}
+
+body.dark-mode .modal-description {
+  color: #9ba9bd;
+}
+
+body.dark-mode .progress-summary-box,
+body.dark-mode .calendar-current-class {
+  background: #1d2a42;
+
+  border-color: #30405b;
+}
+
+body.dark-mode .progress-summary-box span,
+body.dark-mode .calendar-current-class span {
+  color: #93a2b7;
+}
+
+body.dark-mode .overall-progress-track,
+body.dark-mode .progress-chart-track {
+  background: #35445d;
+}
+
+body.dark-mode .live-badge {
+  color: #9eb1d2;
+
+  background: #1d2d49;
+}
+
+body.dark-mode .progress-chart-item,
+body.dark-mode .calendar-subject {
+  background: #19263d;
+
+  border-color: #30415d;
+}
+
+body.dark-mode .progress-chart-name,
+body.dark-mode .calendar-subject h3,
+body.dark-mode .calendar-current-class strong {
+  color: #e9eff9;
+}
+
+body.dark-mode .calendar-subject p {
+  color: #96a5ba;
+}
+
+body.dark-mode .progress-chart-value {
+  color: #8eacff;
+}
+
+body.dark-mode .progress-modal-icon {
+  background: #1e3154;
+
+  color: #86a7ff;
+}
+
+body.dark-mode .calendar-modal-icon {
+  background: #2b2746;
+
+  color: #a995ff;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 650px) {
+  .dashboard-modal-card {
+    padding: 23px 18px;
+
+    max-height: 88vh;
+  }
+
+  .calendar-subject-list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -26,60 +26,80 @@
       </div>
 
       <nav class="menu">
-        <p class="menu-title">MENU</p>
+        <p class="menu-title">NAVIGASI</p>
 
-        <a href="#" class="menu-item active">
+        <a href="dashboard.html" class="menu-item active">
           <i data-feather="grid"></i>
           <span>Dashboard</span>
         </a>
 
-        <a href="#" class="menu-item">
+        <a
+          href="#mataPelajaranSection"
+          class="menu-item"
+          id="mataPelajaranMenu"
+        >
           <i data-feather="book"></i>
-          <span>My Courses</span>
+          <span>Mata Pelajaran</span>
         </a>
 
-        <a href="#" class="menu-item">
+        <a
+          href="#materiTerbaruSection"
+          class="menu-item"
+          id="materiTerbaruMenu"
+        >
           <i data-feather="clipboard"></i>
-          <span>Tugas</span>
+          <span>Materi Terbaru</span>
         </a>
 
-        <a href="#" class="menu-item">
+        <button
+          type="button"
+          class="menu-item sidebar-button"
+          id="progressMenu"
+        >
           <i data-feather="trending-up"></i>
-          <span>Progress</span>
-        </a>
+          <span>Progres</span>
+        </button>
 
-        <p class="menu-title">PERSONAL</p>
+        <p class="menu-title">PRIBADI</p>
 
         <a href="quizizz.html" class="menu-item">
           <i data-feather="check-square"></i>
           <span>Quizizz</span>
         </a>
 
-        <a href="#" class="menu-item">
+        <a href="achievement.html" class="menu-item">
           <i data-feather="award"></i>
-          <span>Achievement</span>
+          <span>Pencapaian</span>
         </a>
 
-        <a href="#" class="menu-item">
+        <button
+          type="button"
+          class="menu-item sidebar-button"
+          id="calendarMenu"
+        >
           <i data-feather="calendar"></i>
           <span>Kalender</span>
-        </a>
+        </button>
 
         <a href="profile.html" class="menu-item">
           <i data-feather="user"></i>
-          <span>Profile</span>
+          <span>Profil</span>
         </a>
       </nav>
 
       <div class="sidebar-bottom">
-        <a href="#" class="menu-item">
+        <button
+          type="button"
+          class="menu-item sidebar-button"
+          id="helpCenterBtn"
+        >
           <i data-feather="help-circle"></i>
-          <span>Help Center</span>
-        </a>
+          <span>Pusat Bantuan</span>
+        </button>
 
         <button class="logout-btn" id="logoutBtn" type="button">
           <i data-feather="log-out"></i>
-          <span>Logout</span>
+          <span>Keluar</span>
         </button>
       </div>
     </aside>
@@ -321,7 +341,7 @@
         </div>
 
         <!-- COURSES -->
-        <section class="section">
+        <section class="section" id="mataPelajaranSection">
           <div class="section-header">
             <div>
               <span class="section-label">PEMBELAJARAN</span>
@@ -343,7 +363,7 @@
         </section>
 
         <!-- LESSON -->
-        <section class="section lesson-section">
+        <section class="section lesson-section" id="materiTerbaruSection">
           <div class="section-header">
             <div>
               <span class="section-label">MATERI</span>
@@ -363,6 +383,154 @@
         </section>
       </section>
     </main>
+
+    <!-- =========================================
+     PUSAT BANTUAN MODAL
+========================================= -->
+
+    <div class="help-modal" id="helpModal">
+      <div class="help-overlay" id="helpOverlay"></div>
+
+      <div
+        class="help-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="helpTitle"
+      >
+        <button
+          type="button"
+          class="help-close"
+          id="helpClose"
+          aria-label="Tutup"
+        >
+          <i data-feather="x"></i>
+        </button>
+
+        <div class="help-icon">
+          <i data-feather="help-circle"></i>
+        </div>
+
+        <span class="help-label"> PUSAT BANTUAN </span>
+
+        <h2 id="helpTitle">Pusat Bantuan Akan Segera Hadir</h2>
+
+        <p>
+          Kami sedang menyiapkan pusat bantuan yang akan memudahkan kamu
+          mendapatkan panduan, informasi, dan solusi selama menggunakan
+          Learn-Space.
+        </p>
+
+        <div class="help-info">
+          <i data-feather="clock"></i>
+
+          <div>
+            <strong>Segera hadir</strong>
+            <span> Fitur ini sedang dalam tahap pengembangan. </span>
+          </div>
+        </div>
+
+        <button type="button" class="help-back" id="helpBack">
+          Kembali ke Learn-Space
+        </button>
+      </div>
+    </div>
+    <!-- =========================================
+     MODAL PROGRES
+========================================= -->
+
+    <div class="dashboard-modal" id="progressModal">
+      <div
+        class="dashboard-modal-overlay"
+        data-close-modal="progressModal"
+      ></div>
+
+      <div class="dashboard-modal-card">
+        <button
+          type="button"
+          class="dashboard-modal-close"
+          data-close-modal="progressModal"
+        >
+          <i data-feather="x"></i>
+        </button>
+
+        <div class="modal-icon progress-modal-icon">
+          <i data-feather="trending-up"></i>
+        </div>
+
+        <span class="modal-label"> PERKEMBANGAN BELAJAR </span>
+
+        <h2>Progres Belajarmu</h2>
+
+        <p class="modal-description">
+          Pantau perkembangan belajar pada setiap mata pelajaran.
+        </p>
+
+        <div class="progress-summary-box">
+          <div class="progress-summary-head">
+            <span>Progres keseluruhan</span>
+
+            <strong id="progressOverallValue"> 0% </strong>
+          </div>
+
+          <div class="overall-progress-track">
+            <div class="overall-progress-fill" id="progressOverallBar"></div>
+          </div>
+        </div>
+
+        <div class="live-badge">
+          <span class="live-dot"></span>
+          Data diperbarui otomatis
+        </div>
+
+        <div class="progress-chart-list" id="progressChartList"></div>
+      </div>
+    </div>
+
+    <!-- =========================================
+     MODAL KALENDER
+========================================= -->
+
+    <div class="dashboard-modal" id="calendarModal">
+      <div
+        class="dashboard-modal-overlay"
+        data-close-modal="calendarModal"
+      ></div>
+
+      <div class="dashboard-modal-card">
+        <button
+          type="button"
+          class="dashboard-modal-close"
+          data-close-modal="calendarModal"
+        >
+          <i data-feather="x"></i>
+        </button>
+
+        <div class="modal-icon calendar-modal-icon">
+          <i data-feather="calendar"></i>
+        </div>
+
+        <span class="modal-label"> PEMBELAJARAN </span>
+
+        <h2>Daftar Mata Pelajaran</h2>
+
+        <p class="modal-description">
+          Daftar mata pelajaran berdasarkan jenjang dan kelas yang sedang
+          dipilih.
+        </p>
+
+        <div class="calendar-current-class">
+          <i data-feather="book-open"></i>
+
+          <div>
+            <span>Jenjang & Kelas</span>
+
+            <strong id="calendarClassText"> SD • Kelas 1 </strong>
+          </div>
+        </div>
+
+        <div class="calendar-subject-list" id="calendarSubjectList"></div>
+      </div>
+    </div>
 
     <script src="dashboard.js"></script>
   </body>

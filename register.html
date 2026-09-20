@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Daftar - Learn-Space</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 24px;
+
+        font-family: "Inter", sans-serif;
+
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(79, 124, 255, 0.12),
+            transparent 35%
+          ),
+          #f6f8fc;
+
+        color: #172957;
+      }
+
+      .register-wrapper {
+        width: 100%;
+        max-width: 460px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        margin-bottom: 22px;
+
+        color: #172957;
+
+        font-size: 20px;
+        font-weight: 800;
+
+        text-decoration: none;
+      }
+
+      .logo-box {
+        width: 38px;
+        height: 38px;
+
+        display: grid;
+        place-items: center;
+
+        color: white;
+
+        background: linear-gradient(135deg, #5d89ff, #386be8);
+
+        border-radius: 11px;
+
+        box-shadow: 0 10px 25px rgba(79, 124, 255, 0.25);
+      }
+
+      .logo-box svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .register-card {
+        padding: 34px;
+
+        background: white;
+
+        border: 1px solid #e4e9f2;
+        border-radius: 22px;
+
+        box-shadow: 0 20px 50px rgba(28, 43, 74, 0.08);
+      }
+
+      .register-header {
+        margin-bottom: 26px;
+        text-align: center;
+      }
+
+      .register-header h1 {
+        color: #172957;
+        font-size: 28px;
+        line-height: 1.2;
+      }
+
+      .register-header p {
+        margin-top: 8px;
+
+        color: #8b98ac;
+
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .form-group {
+        margin-bottom: 17px;
+      }
+
+      .form-group label {
+        display: block;
+
+        margin-bottom: 7px;
+
+        color: #34476b;
+
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .input-wrap {
+        position: relative;
+      }
+
+      .input-wrap input {
+        width: 100%;
+
+        padding: 13px 14px;
+
+        color: #172957;
+        background: #fbfcfe;
+
+        border: 1px solid #dfe5ef;
+        border-radius: 11px;
+
+        outline: none;
+
+        font-size: 13px;
+
+        transition:
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .input-wrap input:focus {
+        background: white;
+
+        border-color: #5d89ff;
+
+        box-shadow: 0 0 0 4px rgba(79, 124, 255, 0.1);
+      }
+
+      .input-wrap input::placeholder {
+        color: #a6afbd;
+      }
+
+      .error-message {
+        display: none;
+
+        margin-top: 6px;
+
+        color: #d94a4a;
+
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      .error-message.show {
+        display: block;
+      }
+
+      .register-button {
+        width: 100%;
+
+        margin-top: 7px;
+
+        padding: 14px 16px;
+
+        border: none;
+        border-radius: 11px;
+
+        color: white;
+
+        background: linear-gradient(135deg, #5d89ff, #3f6fe5);
+
+        cursor: pointer;
+
+        font-size: 13px;
+        font-weight: 700;
+
+        box-shadow: 0 10px 22px rgba(79, 124, 255, 0.22);
+
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .register-button:hover {
+        transform: translateY(-1px);
+
+        box-shadow: 0 14px 28px rgba(79, 124, 255, 0.28);
+      }
+
+      .register-button:active {
+        transform: translateY(0);
+      }
+
+      .login-link {
+        margin-top: 21px;
+
+        color: #8b98ac;
+
+        font-size: 12px;
+
+        text-align: center;
+      }
+
+      .login-link a {
+        color: #4f7cff;
+
+        font-weight: 700;
+
+        text-decoration: none;
+      }
+
+      .login-link a:hover {
+        text-decoration: underline;
+      }
+
+      .terms {
+        margin-top: 8px;
+
+        color: #9aa6b8;
+
+        font-size: 10px;
+        line-height: 1.6;
+
+        text-align: center;
+      }
+
+      .success-message {
+        display: none;
+
+        margin-bottom: 16px;
+
+        padding: 11px 13px;
+
+        color: #1d7c54;
+        background: #edf9f3;
+
+        border: 1px solid #c8ebd8;
+
+        border-radius: 10px;
+
+        font-size: 11px;
+        line-height: 1.5;
+      }
+
+      .success-message.show {
+        display: block;
+      }
+
+      @media (max-width: 520px) {
+        body {
+          padding: 16px;
+        }
+
+        .register-card {
+          padding: 25px 20px;
+          border-radius: 18px;
+        }
+
+        .register-header h1 {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="register-wrapper">
+      <a href="index.html" class="brand">
+        <span class="logo-box">
+          <i data-feather="book-open"></i>
+        </span>
+
+        <span>Learn-Space</span>
+      </a>
+
+      <section class="register-card">
+        <div class="register-header">
+          <h1>Buat Akun Baru</h1>
+
+          <p>Daftar untuk memulai perjalanan belajar di Learn-Space.</p>
+        </div>
+
+        <div class="success-message" id="successMessage">
+          Akun berhasil dibuat. Mengarahkan ke dashboard...
+        </div>
+
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="fullName"> Nama Lengkap </label>
+
+            <div class="input-wrap">
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="Masukkan nama lengkap"
+                autocomplete="name"
+                required
+              />
+            </div>
+
+            <div class="error-message" id="nameError"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="email"> Email </label>
+
+            <div class="input-wrap">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="contoh@email.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div class="error-message" id="emailError"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="password"> Password </label>
+
+            <div class="input-wrap">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Minimal 6 karakter"
+                autocomplete="new-password"
+                required
+              />
+            </div>
+
+            <div class="error-message" id="passwordError"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword"> Konfirmasi Password </label>
+
+            <div class="input-wrap">
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Ulangi password"
+                autocomplete="new-password"
+                required
+              />
+            </div>
+
+            <div class="error-message" id="confirmPasswordError"></div>
+          </div>
+
+          <button type="submit" class="register-button" id="registerButton">
+            Daftar
+          </button>
+        </form>
+
+        <p class="login-link">
+          Sudah punya akun?
+          <a href="login.html">Masuk di sini</a>
+        </p>
+
+        <p class="terms">
+          Dengan mendaftar, kamu dapat menggunakan fitur pembelajaran
+          Learn-Space sesuai dengan data akun yang dibuat.
+        </p>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="register.js"></script>
+  </body>
+</html>
